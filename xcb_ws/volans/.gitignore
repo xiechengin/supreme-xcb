@@ -1,0 +1,10 @@
+build/
+devel/
+logs/
+.catkin_tools
+Firmware/
+src/CMakeLists.txt
+src/sensor
+.catkin_workspace
+.vscode/
+src/mid/image_process/ros_vision/write.avi

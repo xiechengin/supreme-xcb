@@ -1,0 +1,14 @@
+<launch>
+
+
+
+  <include file="$(find mavros)/launch/px4.launch">
+    <arg name="fcu_url"           default="/dev/ttyACM0:921600"/>
+    <arg name="gcs_url" default="tcp-l://0.0.0.0:5760" />
+  </include>
+
+
+
+</launch>
+
+

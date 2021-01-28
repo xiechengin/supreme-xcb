@@ -1,0 +1,8 @@
+[submodule "src/sensor/camera/realsense_ros"]
+	path = src/sensor/camera/realsense_ros
+	url = https://gitee.com/bingobinlw/realsense-ros
+	tag =2.2.11
+[submodule "src/sensor/lidar/pacecat_ros"]
+	path = src/sensor/lidar/pacecat_ros
+	url = https://gitee.com/bingobinlw/pacecat_ros
+	branch = master

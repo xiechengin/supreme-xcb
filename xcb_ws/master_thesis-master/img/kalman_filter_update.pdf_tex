@@ -1,0 +1,69 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'kalman_filter_update.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{322.67219844bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.88528393)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0.19423935,0.28886492){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Iterate through all measure-\\ments at time-step k\end{tabular}}}}%
+    \put(-0.0001667,0.05723414){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Done:\\Wait for new measurement\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{kalman_filter_update.pdf}}%
+    \put(0.43946566,0.82825186){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}New measurement\end{tabular}}}}%
+    \put(0.44079393,0.70967309){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Update $\pmb{\Phi}_k$ and $\pmb{\Delta}_k$\end{tabular}}}}%
+    \put(0.44079393,0.61872933){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Projecting\\$\pmb{\hat{x}}^{-}_{k}=\pmb{\Phi}_{k} \pmb{\hat{x}}_{k-1}+\pmb{\Delta}_{k} \pmb{u}_{k-1}$\\$\pmb{P}^{-}_{k}=\pmb{\Phi}_{k}\pmb{P}_{k-1}\pmb{\Phi}_{k}^{\top}+\pmb{Q}_{k}$\end{tabular}}}}%
+    \put(0.43979769,0.42979348){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Update matrices\\$\pmb{H}_k$,$\pmb{z}_k$\end{tabular}}}}%
+    \put(0.78944484,0.29361654){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Compute Kalman gain\\$\pmb{K}_k=\pmb{P}_{k}^{-}\pmb{H}_{k}^{\top}(\pmb{H}_{k}\pmb{P}_{k}^{-}\pmb{H}_{k}^{\top}+\pmb{R}_{k})^{-1}$\end{tabular}}}}%
+    \put(0.43979776,0.15087251){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Update state estimate and error covariance\\$\pmb{\hat{x}}_k=\pmb{\hat{x}}_k^{-}+\pmb{K}_{k}(\pmb{z}_{k}-\pmb{H}_{k}\pmb{\hat{x}}_k^{-})$\\$\pmb{P}_k=(\pmb{I}-\pmb{K}_k\pmb{H}_k)\pmb{P}_k^{-}(\pmb{I}-\pmb{K}_k\pmb{H}_k)^{\top}+\pmb{K}_k\pmb{R}_k\pmb{K}_k^{\top}$\end{tabular}}}}%
+    \put(0.08882237,0.28933709){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$\pmb{\hat{x}}_k^{-}=\pmb{\hat{x}}_k$\\$\pmb{P}^{-}_{k}=\pmb{P}_{k}$\end{tabular}}}}%
+    \put(0.12401954,0.42116044){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}$\pmb{z}_k^i$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{kalman_filter_update.pdf}}%
+  \end{picture}%
+\endgroup%

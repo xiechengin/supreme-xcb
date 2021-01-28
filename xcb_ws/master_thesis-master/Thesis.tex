@@ -1,0 +1,51 @@
+\documentclass[10pt,b5paper,twoside,openright]{book}
+%\usepackage[inner=3cm,outer=2cm]{geometry}
+%Template for project and MSc project reports created by MSc Morten Fyhn Amundsen
+\usepackage{config}
+\usepackage{customConfig}
+\begin{document}
+  \frontmatter
+  \pagestyle{plain}
+  \begingroup
+  \let\cleardoublepage\clearpage%\input{tex/problemDescription}
+  \input{tex/preface}
+  \input{tex/abstract} 
+  \input{tex/sammendrag}
+  \tableofcontents  \clearpage
+  \afterpage{\null\newpage}
+  \listoftables     \clearpage
+  \afterpage{\null\newpage}
+  \listoffigures    %\clearpage
+  \printglossary    %\clearpage
+  \endgroup
+
+  \mainmatter
+  \pagestyle{headings}
+  \chapter{Introduction}\label{cha:introduction}
+  \input{tex/introduction}
+  \chapter{Modeling and Notations}\label{cha:modeling}
+  \input{tex/modeling}
+  \chapter{Navigation}\label{cha:navigation}
+  \input{tex/fiducial_marker}
+  \input{tex/sensors}
+  \input{tex/state_estimation}
+  \chapter{Controller}\label{cha:controller}
+  \input{tex/controller_logic}
+  \input{tex/guidance_methods}
+  \chapter{Implementation and Test Setup}\label{cha:test_setup}
+  \input{tex/implementation}
+  \input{tex/test_setup}
+  \chapter{Results}\label{cha:results}
+  \input{tex/results_simulations}
+  \input{tex/filter_tuning}
+  \input{tex/controller_tuning}
+  \chapter{Conclusion and future work}\label{cha:conclusion_and_future_work}
+  \input{tex/conclusion_and_future_work}
+  %\appendix
+  %\input{tex/A-model}
+
+  \backmatter
+  \addcontentsline{toc}{chapter}{\bibname}
+  \bibliography{bib/bibliography}
+
+\end{document}

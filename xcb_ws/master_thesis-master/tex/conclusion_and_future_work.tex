@@ -1,0 +1,25 @@
+%!TEX root = ../Thesis.tex
+The main objective of this thesis is to conduct autonomous and precise landing on a static landing pad, or at a landing pad in motion.  
+
+To measure the pose of the landing pad relative to the \gls{UAV}, a camera based measurement system for detecting fiducial markers is implemented as an image processing module. Due to limited measuring range in traditional fiducial markers, a multi fiducial marker method is developed in this thesis, extending the measurement range. The imaging processing module has been extensively tested under various scenarios, such as winter conditions, bright summer sunlight at sea and indoor, all given reliable and accurate results.
+
+A state estimator based on a Kalman filter has been derived and implemented in this thesis. The filter has been parameterized and tuned, both for a static landing pad and for a landing pad in motion. The state estimator is able to fuse measurements from the \gls{UAV}, the landing pad and the camera based measurement system, returning estimates on position, velocity and sensor biases. Never the less, the state estimates have shown to manage sensor fusion of multiple asynchronous measurements in a robust way.
+
+The two guidance methods Parallel Navigation Guidance and Optimal Guidance are discussed and compared using simulations. The Parallel Navigation method is by far the easiest to implement, have low computational cost and are proven to be \gls{UGAS}. In the Optimal Guidance method it is possible to add constraints, such as restrictions in the flight area or control output. However, this guidance method has a high computational cost compared to the Parallel Guidance method and it is harder to implement. Hence, the Parallel Navigation method was the method of choice in the implementation on the \gls{UAV}. Controller logic has been developed to set the desired UAV trajectory, velocities and controller gains.
+
+The image processing module, the state estimator, the Parallel Navigation method and the controller logic are all implemented and running in real time on the \gls{UAV}. Results from physical tests indicates that the combination of the state estimator and the Parallel Navigation Guidance method ensures robust and accurate autonomous landing on a static target. Additionally, results from the tuned state estimator and simulations indicated that the system is able to carry out autonomous landing on landing pads in motion. Landing has been conducted both on ground and a surface vehicles containing world class navigation system, and on a homemade landing pad containing a low cost navigation system. \gls{FFI} will use the state estimator, guidance method and the controller logic developed in this project on their attempt to create fully autonomous drone swarms.
+
+\section*{Further work} % (fold)
+\label{sec:further_work}
+To achieve autonomous landing of a multirotor \gls{UAV} on a platform in motion, several topics requires further investigation.
+\begin{itemize}
+	\item Large-scale testing and tuning of the state estimator, Parallel Navigation method and controller logic on a landing pad in motion. Kalman filter may be tuned by running a full scale tests with a high accuracy motion capture system measuring the pose of the \gls{UAV} and the landing pad.
+	\item Extending the Kalman filter given in \ref{ssub:pos_vel_and_bias_state} \nameref{ssub:pos_vel_and_bias_state}, by include relative heading between the \gls{UAV} and landing pad in the filter equations.
+	\item Investigate the multirotor \gls{UAV} dynamics near touchdown.
+	\item Add additional communication methods between the \gls{UAV} and the landing pad. Enables the landing pad to broadcast its position to the \gls{UAV} if the \gls{UAV} is out of reach on the 5GHz network.
+	\item Derive and implement accurate covariance models for all measurements. 
+	\item If the landing pad is autonomous, information from the path planner on the landing pad can be included to improve the \gls{UAV} controller.
+	\item Add condition monitoring and fault detection system to the \gls{UAV} controller, detecting and act on unexpected behavior.
+\end{itemize}
+
+% section further_work (end)

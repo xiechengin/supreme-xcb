@@ -1,0 +1,10 @@
+%!TEX root = ../Thesis.tex
+\chapter{Abstract}\label{cha:abstract}
+
+%Hvorfor UAV er bra
+Multirotor \glspl{UAV} high maneuverability and their capability to hover, makes them an extensively used platform in many fields of applications. However, their limitations in flight time challenge the ambition of using multirotor \glspl{UAV} in fully autonomous operations. By introducing ground or maritime vehicles for deployment and recovery of the \glspl{UAV}, or even serve as a service platform performing automatic battery replacement, it is possible to perform autonomous operations with multirotor \glspl{UAV} beyond todays limitations in regards range and duration. To achieve a seamless synergy between the \glspl{UAV} and the vehicle including a landing pad, requires the UAV to be able to perform autonomous landing on the landing pad wile it is in motion.
+
+This thesis addresses autonomous landing of a multirotor \gls{UAV} on a vehicle in motion by using traditional navigation sensors in combination with a camera based measurement system. The camera based measurements and the traditional navigation measurements are processed in a Kalman filter developed in this assignment which performs sensor fusion, estimates navigation states as well as calculating the sensor biases. Moreover, two different guidance methods are compared, and a state machine generating flight paths and adjusting controller gains are developed. 
+
+The camera based measurement system, the state estimator and the controller are all implemented on the UAV and physical tests have been conducted in real time. Results from the test show that the UAV is, in a robust manner, able to locate, track and precisely land on a static landing pad. Unfortunately, there was no time to conduct final tests on landing pad in motion. However, results from simulations and the state estimator indicates that the system is able to carry out autonomous landing on a landing pads in motion.
+%\afterpage{\null\newpage}

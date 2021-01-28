@@ -1,0 +1,13 @@
+1、chmod 777 Qv2ray.v2.6.3.linux-x64.AppImage
+2、dpkg -i qv2ray_2.6.3-1stable1_amd64.deb
+3、解压v2ray-linux-64.zip
+4、cp -r v2ray-linux-64 /home/(电脑用户名)/.config/qv2ray/vcore
+5、点击分组、点击订阅设置
+6、输入复制订阅地址：https://cylink.moe/link/FAWThw3zbn7oRjtb?sub=2&extend=1或https://cylink.moe/link/FAWThw3zbn7oRjtb?ssd=1
+7、确认，双击：例如香港01
+8、可配合网上教程：https://www.jianshu.com/p/04edc67ede78
+
+
+
+./Qv2ray.v2.6.3.linux-x64.AppImage 
+

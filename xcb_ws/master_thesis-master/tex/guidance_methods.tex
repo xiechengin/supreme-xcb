@@ -1,0 +1,160 @@
+%!TEX root = ../Thesis.tex
+
+\section{Guidance Methods} % (fold)
+\label{sec:guidance_methods}
+
+The objective of this section is to define several methods for having the UAV matching both the position and speed of the LP. This objective is often referred to as rendezvous in the space industry and corresponds to the motion control objective in a target tracking scenario (\cite{breivik2010topics}). 
+In guidance theory, the interceptor and target are also referred to as evader and pursuer or predators and pray (\cite{Shneydor1998xiii}). Further on in this section, UAV and LP will be used as synonyms for interceptor and target, respectively.
+
+The target tracking scenario in this assignment can be states as
+\begin{align}
+	&\lim_{t\to\infty}(\vect{p}^{n}_{u/n}-\vect{p}_{d/n}^{n})=0\\
+	&\lim_{t\to\infty}(\vect{v}^{n}_{u/n}-\vect{v}^{n}_{l/n})=0
+\end{align}
+where
+\begin{equation}
+	\vect{p}_{d/n}^{n}=\vect{p}^{n}_{l/n}-\vect{p}_{h/l}^{n}
+\end{equation}
+is the desired tracking point and $\vect{p}_{h}^{n} =[0,0,h]^{\top} \in\mathbb{R}^{3}$ is a vector defining the hover height $h$ above the landing pad.
+
+
+\subsection{Parallel Navigation Guidance} % (fold)
+\label{sub:parallel_navigation_guidance}
+
+Parallel navigation has for long been used for mariners to avoid collisions at sea, and is therefor also known under the names "constant bearing" and "collision course navigation" \citep{Shneydor199877}. 
+The parallel navigation notation originate from its use in air-to-air missile guidance applications \citep{Fossen2011}, where the main objective is to achieve collision with the target. \cite{breivik2010topics} applies the parallel navigation concept together with an asymptotic interception method to form a stable motion control of marine craft. Their paper proves stability for surface position and heading for a fully actuated marine surface craft performing motion control using the constant bearing guidance method.
+
+The fundamental of the parallel guidance is that the UAV velocity is a combination of a parallel velocity of the landing pad and a velocity vector pointing directly at the landing pad. Figure~\ref{fig:parallel_navigation} and equation~\ref{eq:parallel_vel} illustrates this method in further details.
+\begin{figure}[ht]
+    \centering
+    \import{img/}{UAV_LP_above.pdf_tex}
+    \caption{Velocity vectors in the Parallel navigation guidance}{2D representation of the velocity vectors in the Parallel navigation guidance}
+    \label{fig:parallel_navigation}
+\end{figure}
+\begin{equation}\label{eq:parallel_vel}
+	\vect{v}^{n}_{u/n}=\vect{v}^{n}_{d/n}+\vect{v}^{n}_{a/n}
+\end{equation}
+where $\vect{v}^{n}_{a/n}$ is the approach velocity pointing in the same direction as the line of sight vector between the UAV and the landing pad. $\vect{v}^{n}_{d/n}$ is the desired position velocity, and $\vect{v}^{n}_{u/n}$ is the velocity vector send as set-point to the UAV flight controller \citep{Fossen2011}. 
+
+A simple kinematic model of a quadcopter can be modeled as
+\begin{equation}\label{eq:kinematicsUAV}
+	\vect{\dot{p}}_{u/n}^n=\vect{v}^n_{u/n}
+\end{equation}
+By applying the kinematic control design given in ~\cite{BREIVIK2007349} as a three axis position UAV controller, the stability proof in the same paper can be rewritten to fit the kinematic equation given in~\ref{eq:kinematicsUAV}. Equation~\ref{eq:LFC} states a continuously differentiable positive definite Lyapunov function candidate for the differential equation in~\ref{eq:kinematicsUAV}
+\begin{equation}\label{eq:LFC}
+	V=\frac{1}{2}(\vect{p}_{u/d}^{n})^{\top}\vect{p}_{u/d}^{n}
+\end{equation}
+where
+\begin{equation}
+	\vect{p}_{u/d}^{n}=\vect{p}^n_{u/n}-\vect{p}_{d/n}^n
+\end{equation}
+is the relative position between the UAV and its desired position $\vect{p}_{d/n}^n$. The time derivative of $\vect{p}_{u/d}^n$ is
+\begin{equation}
+	\dot{\vect{p}}_{u/d}^n=\dot{\vect{p}}^n_{u/n}-\dot{\vect{p}}_{d/n}^n=\vect{v}^n_{u/n}-\vect{v}_{d/n}^n
+\end{equation}
+
+Differentiating the Lyapunov function candidate given in~\ref{eq:LFC} with respect to time along the trajectories of $\vect{p}_{u/d}^{n}$ gives
+\begin{equation}\label{eq:lyapunov_sub}
+	\dot{V}=(\vect{p}_{u/d}^{n})^{\top}\dot{\vect{p}}_{u/d}^{n}=(\vect{p}_{u/d}^{n})^{\top}(\vect{v}^n_{u/n}-\vect{v}_{d/n}^n)
+\end{equation}
+Implementing the parallel navigation guidance method gives the controller
+\begin{equation}\label{eq:collisionController}
+	\vect{v}_{u/n}^n=\vect{v}_{d/n}^n-\vect{\kappa}\frac{\vect{p}_{u/d}^{n}}{|\vect{p}_{u/d}^{n}|}
+\end{equation}
+where $\vect{\kappa}$ is a controller gain. This parallel navigation guidance controller is designed to achieve collision with the target. \cite{BREIVIK2007349} implements an asymptotic gain to achieve asymptotically interception velocity with the desired position. This is realized by selecting the controller gain as
+\begin{equation}\label{eq:asymptoticGain}
+	\vect{\kappa}=U_{c,max}\frac{|\vect{p}_{u/d}^{n}|}{\sqrt{(\vect{p}_{u/d}^{n})^{\top}\vect{p}_{u/d}^{n}+\Delta^2}}
+\end{equation}
+where $U_{c,max}$ is the maximum approach velocity and $\Delta$ is a tunable control parameter. By adding the asymptotic gain given in~\ref{eq:asymptoticGain} in to the parallel navigation guidance method in~\ref{eq:collisionController}, the controller can be rewritten as
+\begin{equation}\label{eq:parallelNavigation}
+	\vect{v}_{u/n}^n=\vect{v}_{d/n}^{n}-U_{c,max}\frac{\vect{p}_{u/d}^{n}}{\sqrt{(\vect{p}_{u/d}^{n})^{\top}\vect{p}_{u/d}^{n}+\Delta^2}}
+\end{equation}
+substituting \ref{eq:parallelNavigation} in to \ref{eq:lyapunov_sub} yields
+\begin{equation}
+	\dot{V}=-U_{c,max}\frac{(\vect{p}_{u/d}^{n})^{\top}\vect{p}_{u/d}^{n}}{\sqrt{(\vect{p}_{u/d}^{n})^{\top}\vect{p}_{u/d}^{n}+\Delta^2}}<0,\:\: \forall \vect{p}_{u/d}^{n}\ne0
+\end{equation}
+which is negative definite when $\Delta$ and $U_{c,max}$ are positive and bounded. By using Lyapunov's theorem ~\citep{KhalilHassanK2015Ns}, the system is shown to be \gls{UGAS} ~\citep{Fossen2011}. Moreover, ~\citet{belleter2016control} proves in his thesis that the system is \gls{USGES}.
+
+% subsection parallel_navigation (end)
+
+\subsection{Optimal Guidance} % (fold)
+\label{sub:optimal_guidance}
+Optimal Guidance or optimal control problems aim to find the optimal control output that minimizes a control objective at the same time as some given constraints are met. A reasonable control objective to minimize in the subject of landing a \gls{UAV} on a platform in motion, is to use the distance between the \gls{UAV} and the tracking point, in addition to the relative velocity between them.  
+
+A general quadratic objective function with linear constraints for a discrete time systems can be written as \citep{foss2013merging}
+%Objective function for dynamic optimization for linear models
+\begin{equation}\label{eq:objective_function}
+	f(z)=\sum_{k=0}^{N}{f(\vect{x}_{k+1},\vect{u}_{k})}=\sum_{k=0}^{N-1}\frac{1}{2}\vect{x}_{k+1}^{\top}\vect{Q}_{k+1}\vect{x}_{k+1}+\frac{1}{2}\vect{u}_{k}^{\top}\vect{R}_{k}\vect{u}_{k}
+\end{equation}
+subject to
+\begin{align}
+	\vect{x}_{k+1}&=\vect{A}_k\vect{x}_k+\vect{B}_k\vect{u}_k\label{eq:objective_equality_const}\\
+	\vect{x}^{low}&\le\vect{x}_k\le\vect{x}^{high}\\
+	\vect{u}^{low}&\le\vect{u}_k\le\vect{u}^{high}\\
+	-\vect{\Delta u}^{high}&\le\vect{\Delta u}_k\le\vect{\Delta u}^{high}
+\end{align}
+where
+\begin{align}
+	\label{eq:object_constraints_first}
+	\vect{\Delta u}_k&=\vect{u}_k-\vect{u}_{k-1}\\
+	\vect{z}^{\top}&=(\vect{x}_1^{\top},\dots,\vect{x}_N^{\top},\vect{u}_0^{\top},\dots,\vect{u}_{N-1}^{\top}) \\
+	n&=N(n_x+n_u) \\
+	\vect{x}_0, \vect{u}_{-1}&\text{ is given}\\
+	\vect{Q}_k&\succeq0\\
+	\label{eq:object_constraints_last}
+	\vect{R}_k&\succeq0
+\end{align}
+furthermore, $N$ is the prediction horizon, $\vect{x}$ and $\vect{u}$ are decision variables and represents the system states and control input respectively and $k$ is the time step from $k=0$ to $k=N$. The vectors $\vect{x}^{low}$, $\vect{x}^{high}$, $\vect{u}^{low}$ and $\vect{u}^{high}$ contains the upper and lower limits of the states and input respectively. Additionally, the vectors $\vect{\Delta u}^{high}$ and $\vect{\Delta u}^{low}$ enable constraints on the change of control input. The $\vect{Q}_k$ and $\vect{R}_k$ matrices in the objective function~\ref{eq:objective_function} are matrices weighting the individual states and control inputs. These weighting matrices and the prediction horizon $N$ are used for tuning the optimization function to give its desired behavior.
+
+One way to implement optimal guidance by using the general quadratic objective function given in~\ref{eq:objective_function} and its corresponding constraints (\ref{eq:object_constraints_first}-\ref{eq:object_constraints_last}), is by using the relative position and velocity between the \gls{UAV} and the desired tracking point as states and their respective velocities relative to the $n$ frame as control input.
+\begin{align}\label{eq:objective_states_input}
+	\vect{x}_k&=
+	\begin{bmatrix}
+		\vect{p}^n_{d/u}\\
+		\vect{u}^n_{d/u}
+	\end{bmatrix}
+	&
+	\vect{u}_k&=
+	\begin{bmatrix}
+		\vect{u}^n_{u/n}\\
+		\vect{u}^n_{d/n}
+	\end{bmatrix}
+\end{align}
+Furthermore, a constant velocity discrete time model can be implemented in the equality constraints~\ref{eq:objective_equality_const}, 
+\begin{align}
+	\vect{p}^n_{d/u,k+1}&=\vect{p}^n_{d/u,k}+ \vect{\Delta t}\,\vect{u}^n_{d/u,k} \\
+	\vect{u}^n_{d/u,k+1}&=\vect{u}^n_{d/n,k}-\vect{u}^n_{u/n,k}
+\end{align}
+Gives the $\vect{A}_k$ and $\vect{B}_k$ matrices
+\begin{align}\label{eq:objective_constraints_matrices}
+	\vect{A}_k&=
+	\begin{bmatrix}
+		\vect{I} & \vect{\Delta t}\\
+        \vect{0} & \vect{0}
+	\end{bmatrix}
+	&
+	\vect{B}_k&=
+	\begin{bmatrix}
+		0 & 0 \\
+        -\vect{I} & \vect{I}
+	\end{bmatrix}
+\end{align}
+where $\vect{I}$ is the $3\times3$ identity matrix, $\vect{0}$ is a $3\times3$ matrix with all elements equal to zero and $\vect{\Delta t}$ is a $3\times3$ matrix with the relative time-step $(t_{k+1}-t_{k})$ on its diagonal and zeros on the non-diagonal elements. By setting the constraints representing the control input for the desired tracking point to the measured velocity of the tracking point, ensures constant velocity estimate of the desired tracking point. The constraints representing the control input for the \gls{UAV} is set to the desired maximum velocity for the \gls{UAV}. 
+
+Solving the quadratic objective function~\ref{eq:objective_function} with the linear constraints in \ref{eq:object_constraints_first}-\ref{eq:object_constraints_last}, the states and control input given in~\ref{eq:objective_states_input} and their system matrices in~\ref{eq:objective_constraints_matrices} gives an open loop solution to the Optimal Guidance problem \citep{foss2013merging}. Feedback can be added to the Guidance method by introducing the linear \gls{MPC} \citep{foss2013merging}. Algorithm~\ref{alg:Linera_MPC} taken from \cite{foss2013merging}, describes how the linear \gls{MPC} with state feedback closes the loop. 
+\begin{algorithm}
+\caption{MPC with state feedback}\label{alg:Linera_MPC}
+	\begin{algorithmic}[1]
+		\For{$k=0,1,2,\dots$}
+			\State Get current states $\vect{x}_k$
+			\State Solve problem~\ref{eq:objective_function} on the prediction horizon from $k$ to $k+N$ with $\vect{x}_k$ as initial condition
+			\State Apply the first control move $\vect{u}_t$ from the solution
+		\EndFor
+	\end{algorithmic}
+\end{algorithm}
+The use of \gls{MPC} with state feedback requires that all the states are measured. In this application, this require that the relative position $\vect{p}^n_{d/u}$ and velocity $\vect{u}^n_{d/u}$ are measured.
+% subsection optimal_control_guidance (end)
+
+% section guidance_methods (end)
+
+

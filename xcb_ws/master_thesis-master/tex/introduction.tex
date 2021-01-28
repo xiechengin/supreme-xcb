@@ -1,0 +1,83 @@
+%!TEX root = ../Thesis.tex 
+%Section \ref{sec:literature_review} \nameref{sec:literature_review} is taken from the feasibility study \citep{Line2017}.
+\section{Motivation} % (fold)
+\label{sec:motivation}
+The multirotor \gls{UAV} is a popular and much used platform getting more and more introduced into our society by hobbyists, researchers, photographers, the coastguard, farmers, the military and many others. \gls{FFI} are using UAVs in many of their fields of research such as, surveillance, \gls{SAR}, \gls{EW}, autonomy, swarms, communication and environmental monitoring.
+
+Due to the multirotor \glspl{UAV} high maneuverability, though limited flight time, other autonomous vehicles such as \glspl{USV}, \glspl{UGV} or even fixed wing \glspl{UAV} can be used as a platform to transport and serve multirotor \glspl{UAV}. For autonomous cooperation between multirotor UAVs and other vehicles to be realized, an autonomous system for precise landing on landing pads in motion needs to be established.
+% section motivation (end)
+
+\section{Literature Review} % (fold)
+\label{sec:literature_review}
+
+The idea of deploying and recovering multirotor \glspl{UAV} from a vehicles is not new. Some examples are the autonomous drone service integrated in the Mercedes-Benz Vision Van (\cite{daimlerVisionVan}) and 
+the ship-to-shore drone delivery system from Field Innovation Team (\cite{theguardian:UAV}).
+
+In the last decade, multiple studies have been conducted in the area of autonomous landing of multirotor \glspl{UAV} on vehicles in motion. In the paper of \cite{borowczyk2016autonomous} they have been successful in autonomously landing a commercial \gls{UAV} on the roof of a car at velocities up to $14m/s$. In their application, a smart-phone and a visual fiducial marker were strapped to the roof of the car to provide position and velocity measurements of the landing pad. \cite{araar2017vision} did some interesting research on autonomous landing on moving platforms using vision based navigation. The visual fiducial markers used for the navigation were designed to have multiple markers at different sizes, aimed for extensive range of detection. The two filters Extended Kalman and Extended $\text{K}_\infty$ where compared for performing the sensor fusion of the visual measurements and the \gls{IMU} data, where the \gls{EKF} by far resulted in the best accuracy. There is also worth mentioning that the system where only tested for velocities up to $1.8m/s$.
+
+To achieve robust and accurate autonomous on a landing pad at speed, accurate navigation methods needs to be established. This implies the need of a good state estimator that estimates the position and velocities of the \gls{UAV} and landing pad. Throughout time there have been developed many different methods for guidance and navigation. The sun and stars, compass, inertial sensors, landmarks, radar, radio triangulation and \gls{GNSS} are among the many used methods. Lately, lightweight and low cost inertial sensors, pressure sensors and \gls{GNSS} receivers have been introduced. According to \cite{beard2012small} these kind of lightweight and low cost sensors and receivers have made a huge impact on the development of of small unmanned aircrafts.
+
+Many different navigation methods have been carefully tested and implemented on multirotor \glspl{UAV}. One method frequently used for outdoor navigation is the combination of \gls{GNSS} and \gls{IMU} (\cite{beard2012small}). Other methods for navigating in \gls{GNSS}-denied environments are established, as the usage of \gls{UWB} (\cite{tiemann2015design}), infrared motion capture system (\cite{zou2016development}) or vision based navigation (\cite{huang2015monocular}). More general, solving navigation equations often involve fusion of several sensors returning asynchronous measurements.
+
+The Extended Kalman filter is shown as a method with high performance to solve the \gls{INS}/\gls{GNSS} integration (\cite{groves2013principles}). There are two main methods for implementing the \gls{EKF} to solve navigation equations, the direct and indirect method. The direct method estimates all the navigation-states in the filter, while the indirect method only estimates errors (\cite{vik2009integrated}). By using the direct method, the dynamics of the vehicle can be included in the state equations. An accurate dynamic model of the vehicle implemented in an \gls{EKF} using the direct method, makes the state estimate more accurate and robust against sensor failures by implementing Dead-reconing. On the other hand, creating an accurate dynamic model can be challenging due to many physical parameters to be defined (\cite{roumeliotis1999circumventing}). \cite{martin2010true} defines an accurate model for the rotor drag on a quadcopter by using \gls{EKF} to estimate physical parameters. In the paper from \cite{tailanian2014design} they describe how to implement a full state direct Kalman filter on a multirotor \gls{UAV}.
+
+The indirect method, often called the error state method, differs from the direct method by that it estimates only the sensors error states. This implies that the system dynamics is not included in the filter, whats makes the filter flexible and universal. The same error state filter can therefore be used in various applications without development of accurate dynamic models or re engineering the filter (\cite{roumeliotis1999circumventing}). Another argument for using the indirect method, is that even low cost \gls{MEMS} \gls{IMU}'s gives an relative high accurate measurement that often overcomes the accuracy of the developed model.
+
+Several architectures, for different level of integration have been developed for \gls{GNSS}/INS integration. In the book of \cite{vik2009integrated}, the uncoupled, loosely coupled, tight coupled and deeply coupled integration methods are discussed. The tightly and deeply coupled integration methods are the most accurate and robust integration methods. Even the case where there are to few satellites available to calculate the receivers position, the raw measurements from the \gls{GNSS} receiver will still provide useful information to the filter. Unlike the loosely and uncoupled integration, where the calculated position and velocity-data form the receiver are used. On the other hand, the loosely and uncoupled systems are lees complex and can therefore more easily be implemented. Another benefit is that the \gls{GNSS} receiver can be switched without changing the code, while tightly and deeply coupled integration methods are customized to a specific sensor \cite{vik2009integrated}.
+% section literature_review (end)
+
+\section{Problem description} % (fold)
+\label{sec:problem_description}
+For multirotor UAVs to have a useful role as a sensor platform, the operation of tracking and recovering to its landing pad needs to be robust and fully automated. Furthermore, to be able to operate from vehicles at sea, or other vehicles without interrupting the ongoing mission, landing on a platform in motion is essential. In order to solve this problem, the assignment has been structured into the following tasks:
+
+\begin{itemize}
+	\item Investigate the available onboard sensors which are relevant for autonomous landing with small quadcopters.
+	\item Consider fiducial marker detection systems and develop a concept for a system in which the marker is being clearly visible for wide range of relevant altitudes.
+	\item Investigate and develop a state estimator for relative positioning which allows asynchronous measurement updates.
+	\item Investigate different control and guidance strategies.
+	\item Implement the marker-detection, the state estimator and a suitable controller on a real platform for testing.
+	\item Perform experiments in which quadcopter is being ordered to land on either a vehicle, a surface vessel or a landing platform from a position nearby.
+\end{itemize}
+% section problem_description (end)
+
+
+\section{Background and Contributions} % (fold)
+\label{sec:background_and_contributions}
+
+In this project, a multi marker method described in \ref{sub:multi_marker_system} has been developed. The method is using a combination of ordinary fiducial markers to extend the detection range. The custom sensor unit described in \ref{ssub:custom_sensor_unit} has also been made during this work. The enclosure of the custom sensor unit was designed and 3D printed, the components were connected together and the flight controller was configured. FFI supplied software and configured the \gls{SBC} mounted on the custom sensor unit.
+
+Moreover, the following software modules are developed and implemented in this work using C++. All of the listed software modules are tested and run in real time on the \gls{SBC} mounted on the \gls{UAV}
+\begin{itemize}
+	\item A fiducial marker detection module described in \ref{ssub:node_aruco}. The module detects fiducial markers using \gls{OpenCV} and calculates the relative pose between the \gls{UAV} and the landing pad.
+	\item A state estimator module described in \ref{ssub:node_navigation}. The module reads and transforms sensor inputs, performing sensor fusion and estimates navigation states and biases.
+	\item A controller module described in \ref{ssub:node_controller}. The module runs a Guidance Controller controlling the \gls{UAV} position. It do also include a state machine, generating position set points and controller gains to the Guidance Controller.
+\end{itemize}
+
+The following hardware were given as background material from \gls{FFI}
+\begin{itemize}
+	\item Quadcopter \gls{UAV} including camera and a \gls{SBC} set up with ROS and communication link to the workstation and manual control. Additionally, the \gls{SBC} were set up with communication to the \gls{UAV} flight controller, allowing velocity set points and receiving measurements.
+	\item \gls{UGV} included navigation sensors and communication link to the \gls{UAV}
+	\item \gls{USV} included navigation sensors and communication link to the \gls{UAV}
+\end{itemize}
+Moreover, FFI contributed with the following software modules
+\begin{itemize}
+	\item Software module for reading out raw image from the camera mounted on the \gls{UAV}
+	\item Software module for communicating with the landing pad
+	\item Safety module between the set points generated by the controller and the flight controller
+\end{itemize}
+
+Additionally, the following sections are based on the authors previous work conducted in the feasibility study carried out in the fall semester 2017 \citep{Line2017}
+\begin{itemize}
+	\item \ref{sec:literature_review} \nameref{sec:literature_review}
+	\item \ref{cha:modeling} \nameref{cha:modeling}
+	\item \ref{sec:gnss} \nameref{sec:gnss}
+	\item \ref{sec:imu} \nameref{sec:imu}
+	\item \ref{sec:baromter} \nameref{sec:baromter}
+\end{itemize}
+% section background_and_contributions (end)
+
+
+\section{Outline} % (fold)
+\label{sec:outline}
+This thesis is organized as follows. Chapter~\ref{cha:modeling} concerns notations, coordinate frames and transformations. Moreover, a mathematical model describing the system dynamics of a rigid body quadcopter \gls{UAV} is derived i the same chapter. Sensor equations and Kalman filter equations are found in chapter~\ref{cha:navigation}. Further on, in chapter~\ref{cha:controller} a controller logic and two Guidance methods are presented. Chapter~\ref{cha:test_setup} describes the implementation of software and hardware in addition to the test setup. The results from simulation and physical tests are then presented and discussed in chapter~\ref{cha:results}, before the conclusion and further work ends the assignment in chapter~\ref{cha:conclusion_and_future_work}.
+% section outline (end)

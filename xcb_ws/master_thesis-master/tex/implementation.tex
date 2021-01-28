@@ -1,0 +1,113 @@
+%!TEX root = ../Thesis.tex
+\section{Implementation} % (fold)
+\label{sec:implementation}
+
+\subsection{Robotics Operating System} % (fold)
+\label{sub:robotics_operating_system}
+\gls{ROS} is an open source framework for building robotic applications developed by contributers in the Open Source Robotics Foundation~\citep{AboutROS}. The \gls{ROS} framework consists of a set of software libraries and tools for developing robotic applications in a modular way. A system running on \gls{ROS} consists of multiple nodes communicating through topics. Figure~\ref{fig:nodeOverview} illustrates how the nodes are connected using topics in the implementation done in this assignment. The green nodes \textit{odometry} and \textit{safety\_module} are made by \gls{FFI}, the nodes \textit{node\_aruco}, \textit{node\_navigation} and \textit{node\_controller} marked blue are developed by the author and the read nodes are made by other contributers to the \gls{ROS} community. All the nodes implemented by the author are implemented as \gls{ROS} nodes by using the programming language c++. The \gls{ROS} nodes are tested on \gls{ROS} version 1.12.13 (Kinetic).
+\begin{figure}[ht]
+    \centering
+    \import{img/}{ROSoverview.pdf_tex}
+    \caption{ROS node overview}
+    \label{fig:nodeOverview}
+\end{figure}
+The corresponding table~\ref{tab:mavrosTopics} lists all the topics included in the \textit{/mavros/*} branch in figure~\ref{fig:nodeOverview}.
+\begin{table}[!htb]
+  \centering
+  \renewcommand{\tabcolsep}{.1mm}
+  \begin{tabular}{l l}
+    \toprule
+    /mavros&/state\\
+    &/time\_reference\\
+    &/global\_position/global\\
+    &/imu/data\\
+    &/local\_position/velocity\\
+    \bottomrule
+  \end{tabular}
+  \caption{Topics in /mavros/* from figure~\ref{fig:nodeOverview}}
+  \label{tab:mavrosTopics}
+\end{table}
+Furthermore, table~\ref{tab:sensorMsgTopic} and \ref{tab:mavrosMsg} lists all the measurements read from the \gls{UAV} and the landing pad.
+\begin{table}[ht]
+\centering 
+  \begin{tabular}{l c}
+    \toprule
+    \textbf{Message}&\textbf{Measurement} \\\hline \\[-1em]
+    /mavros/global\_position/global&$\vect{p}^{ge}_{u}$\\ \\[-1em]
+    /mavros/global\_position/global/position\_covariance&$\vect{r}_{p_u^e}$\\ \\[-1em]
+    /mavros/imu/data/orientation&$\vect{q}_{eu}$\\ \\[-1em]
+    /mavros/local\_position/velocity/twist/linear&$\vect{v}^e_{u/e}$\\ \\[-1em]
+    /mavros/local\_position/velocity/twist/angular&$\vect{\omega}^e_{u/e}$\\ \\[-1em]
+    \bottomrule
+  \end{tabular}
+  \caption{Messages on the mavros topic received from the UAV}
+  \label{tab:sensorMsgTopic}
+\end{table}
+\begin{table}[ht]
+\centering 
+  \begin{tabular}{l c}
+    \toprule
+    \textbf{Message}&\textbf{Measurement} \\\hline \\[-1em]
+    /odometry/target/pose/pose/position&$\vect{p}^{ge}_{l}$\\ \\[-1em]
+    /odometry/target/pose/pose/orientation&$\vect{q}_{el}$\\ \\[-1em]
+    /odometry/target/pose/covariance&$\vect{r}_{l,pose}$\\ \\[-1em]
+    /odometry/target/twist/twist/linear&$\vect{v}^e_{l/e}$\\ \\[-1em]
+    /odometry/target/twist/twist/angular&$\vect{\omega}^e_{l/e}$\\ \\[-1em]
+    /odometry/target/twist/covariance&$\vect{r}_{l,twist}$\\ \\[-1em]
+    \bottomrule
+  \end{tabular}
+  \caption{Messages on the odometry topic received from the landing pad}
+  \label{tab:mavrosMsg}
+\end{table}
+% subsection robotics_operating_system (end)
+
+\subsection{Implemented Nodes} % (fold)
+\label{sub:implemented_nodes}
+
+\subsubsection{node\_aruco} % (fold)
+\label{ssub:node_aruco}
+The main objective of the \textit{node\_aruco} is to, from an image stream, get a measurement of the position and orientation of a fiducial marker relative to the camera. A flow chart given in figure~\ref{fig:nodeAruco} illustrates the structure of the node. 
+\begin{figure}[ht]
+    \centering
+    \import{img/}{node_aruco.pdf_tex}
+    \caption{Flow chart of the node\_aruco}
+    \label{fig:nodeAruco}
+\end{figure}
+The image matrix received from the uEye camera contains of $m\times n$ 8 bit unsigned integers, where $m\times n$ represents the camera resolution. Each matrix element gives the intensity of the pixel in the corresponding image. The image matrix is send in to the \textit{cv::aruco::detectMarkers} function included in the OpenCV library ~\citep{itseez2018opencv}. The function returns an array with the ID of the markers detected and its corresponding corners. Furthermore, the pose is estimated for each of the detected markers using the function \textit{cv::aruco::estimatePoseSingleMarkers} and parameters given in a parameter file. Parameters given in the parameter file are constants describing the positions, ID's and dimensions of the ArUco tags creating a multi marker tag. Moreover, the parameter file includes camera calibration matrices. Pose and tag dimensions are then used in an averaging algorithm to improve the pose measurements. The position averaging method used is given in equation~\ref{eq:posAverage} and are used for ArUco markers averaging in the paper from \cite{tordal2017relative}.
+\begin{align}\label{eq:posAverage}
+	& \bar{\vect{p}}=\frac{1}{A}\sum_{i=1}^{N_m}{a_i \vect{p}_i}, & A=\sum_{i=1}^{N_m}{a_i}
+\end{align}
+where $a_i$ and $\vect{p}_i$ are the respectively tag area and position vector, $N_m$ is the number of tags to be averaged and $\bar{\vect{p}}$ is the resulting average vector. Finally, the averaged pose estimate is tagged with the time stamp from the image and sent on the \textit{/arucoNode/data} topic. Moreover in the initialization phase, the local $n$ frame is set to the point measured by the \gls{UAV} \gls{GNSS} sensor. 
+% subsubsection node_aruco (end)
+
+\subsubsection{node\_navigation} % (fold)
+\label{ssub:node_navigation}
+When the navigation node is started, it waits for the UAV to get armed. This is to ensure that the UAV have GNSS fix and to ensure that the user have placed the UAV at its takeoff position. Thereafter, the Kalman filter is initialized, the global NED is defined and the time difference between the \gls{SBC} time and \gls{GNSS} time is calculated.
+\begin{figure}[ht]
+    \centering
+    \import{img/}{node_navigation.pdf_tex}
+    \caption{Flow chart of the node\_navigation}
+    \label{fig:nodeNavigation}
+\end{figure}
+The filter can either be automatically- or manually initialized, selected by a parameter. If the filter is automatically initialized, the UAV have to be placed in the center of the landing pad before initialization. In automatic initialization, the relative position estimate $\vect{p}^{n}_{l/u}$ is set to zero, the landing pad velocity $\vect{v}^{n}_{l/n}$ is set to the measured velocity $\vect{v}^n_{l/n}$ and the bias term $\vect{\beta}_{l/u}^{n}$ is set to measured relative position $\vect{p}^n_{l/n}-\vect{p}^n_{u/n}$. The covariance estimate is set to predefined values based on experience set in the parameter file. Manually initialization uses predefined values from the parameter file both on the state and covariance estimate.
+
+To be able to match the measurements from the landing pad with the measurements form the \gls{UAV} and camera, all measurement are stamped with \gls{GNSS} time. Messages from the camera and the \gls{UAV} are originally stamped with time from the computer clock which differs from the \gls{GNSS} time. In the initialization phase, a time difference $\Delta_{ros/GNSS}$ is calculated by taking the difference between \textit{ros::Time::now()} and \gls{GNSS} time. The time stamps from the camera and the \gls{UAV} measurements are then adjusted to \gls{GNSS} time by adding the $\Delta_{ros/GNSS}$ to the initial time stamp. After the filter is initialized, it starts updating the filter from measurement updates. When a measurement arrives, the measurement are transformed in to its relevant coordinate frame by using the conversion methods given in section~\ref{sec:sensor_input}. Due to delays on the camera- and Landing Pad measurements, a method to match the corresponding measurements of the \gls{UAV} orientation and position is needed. The method used in \textit{node\_navigation} stores the latest second of \gls{UAV} orientation an position measurements and their corresponding time stamps in dynamic buffers. When a camera or landing pad measurement arrives, the corresponding \gls{UAV} orientation and position are calculated using the dynamic array and linear interpolation between the stored measurements. 
+
+As discussed in section~\ref{sec:stateEstimation}, there are two ways to update the Kalman filter is updated. Either by updating the filter with new measurements or by dead reckoning on request. As illustrated in figure~\ref{fig:nodeNavigation}, \textit{node\_navigation} requests the estimated states and their corresponding covariance, times the states with the \gls{GNSS} time stamp and sends them out on the \textit{/navigationNode/stateEstimator} topic ten times a second.
+% subsubsection node_navigation (end)
+
+
+\subsubsection{node\_controller} % (fold)
+\label{ssub:node_controller}
+The flow chart given in figure ~\ref{fig:nodeController} describes the work flow of the \textit{node\_controller}.
+\begin{figure}[ht]
+    \centering
+    \import{img/}{node_controller.pdf_tex}
+    \caption{Flow chart of the node\_controller}
+    \label{fig:nodeController}
+\end{figure}
+The state machine referred to in the figure is defined in section~\ref{sub:state_machine}, where status from the safety module and the estimated states from the Kalman filter are given as inputs. Furthermore, a position set point $\vect{p}_{d/n}^{n}$ and its velocity $\vect{v}_{d/n}^{n}$ together with a controller gain $\Delta$ are set as input to the Parallel Navigation Guidance Controller given in section~\ref{sub:parallel_navigation_guidance}. The velocity set point $\vect{v}_{u/n,sp}^{n}$ from the Parallel Navigation Guidance Controller is sent as a velocity command on a \gls{ROS} topic. 
+% subsubsection node_controller (end)
+% subsection implemented_nodes (end)
+
+% section implementation (end)

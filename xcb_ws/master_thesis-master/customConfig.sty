@@ -1,0 +1,39 @@
+\ProvidesPackage{customConfig}
+
+\usepackage{etoolbox}
+\usepackage{todonotes}
+\usepackage{wrapfig}
+\usepackage{url}
+\usepackage{subcaption} 
+\usepackage{arydshln}
+\usepackage{import}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\usepackage{afterpage}
+
+%Glossary
+%\usepackage{glossaries}
+\usepackage[nonumberlist]{glossaries}
+%\usepackage[acronym,nomain]{glossaries}
+\makeglossaries
+\loadglsentries{tex/glossary}
+
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\R}{\mathbb{R}}
+%\newcommand{\S}{\mathbb{S}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\atantwo}{\operatorname{atan2}}
+
+%Arrow for tables
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,calc}
+
+\newcommand{\tikzmark}[2][-3pt]{\tikz[remember picture, overlay, baseline=-0.5ex]\node[#1](#2){};}
+
+\newcounter{arrow}
+\setcounter{arrow}{0}
+\newcommand{\drawcurvedarrow}[3][]{%
+ \refstepcounter{arrow}
+ \tikz[remember picture, overlay]\draw (#2.center)edge[#1]node[coordinate,pos=0.5, name=arrow-\thearrow]{}(#3.center);
+}

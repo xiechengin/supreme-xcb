@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: simulation
+    relative_path: urdf/iris_depth_camera/xacro/urdf/iris_base.xacro
+    xacro_args: rotors_description_dir:=/home/bingo/project/some/src/simulation/urdf/iris_depth_camera/xacro mavlink_udp_port:=14560 --inorder
+  SRDF:
+    relative_path: config/iris.srdf
+  CONFIG:
+    author_name: bingo
+    author_email: bingobin.lw@gmail.com
+    generated_timestamp: 1584760062

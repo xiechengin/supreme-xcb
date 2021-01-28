@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="px4_control" type="mavros_mission_px4.py" name="mavros_mission_px4" output="screen">
+    </node>
+
+</launch>

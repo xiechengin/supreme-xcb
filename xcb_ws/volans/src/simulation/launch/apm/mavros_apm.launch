@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- MAVROS posix SITL environment launch script -->
+    <!-- launches MAVROS, PX4 SITL, Gazebo environment, and spawns vehicle -->
+    <!-- vehicle pose -->
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0"/>
+    <arg name="R" default="0"/>
+    <arg name="P" default="0"/>
+    <arg name="Y" default="0"/>
+   
+    <!-- MAVROS configs -->
+    <arg name="fcu_url" default="udp://:14551@localhost:14557"/>
+    <arg name="respawn_mavros" default="false"/>
+    <!-- PX4 configs -->
+    <arg name="interactive" default="true"/>
+   
+    <!-- MAVROS -->
+    <include file="$(find mavros)/launch/apm.launch">
+        <!-- GCS link is provided by SITL -->
+        <arg name="gcs_url" value=""/>
+        <arg name="fcu_url" value="$(arg fcu_url)"/>
+        <arg name="respawn_mavros" value="$(arg respawn_mavros)"/>
+    </include>
+
+</launch>

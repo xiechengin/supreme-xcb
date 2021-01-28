@@ -1,0 +1,265 @@
+%!TEX root = ../Thesis.tex
+
+%Skriv om  landing på stasjonær plattform. Bruker filteret for å forbedre posisjonsestimatet.
+
+
+\section{State estimators}\label{sec:stateEstimation}
+As illustrated in figure \ref{fig:filterSetup}, the measurements send to the state estimator originates from the landing pad, the UAV and the camera mounted on the UAV. Both the Landing pad and the UAV measurements are relative to and given in the same NED reference system. While the relative measurement from the camera, returns the pose of the landing pad relative to the UAV frame given in NED.
+
+\begin{figure}[ht]
+	\begin{center}
+		\centering
+        \import{img/}{filterSetup.pdf_tex}
+        \caption{Measurements used in the Kalman filter}{Measurements used in the Kalman filter to estimate the states $\vect{\hat{x}}$ and the covariance $\vect{P}$ of the estimate}
+        \label{fig:filterSetup}
+	\end{center}
+\end{figure}
+
+The different sensor inputs have different update-rates and the measurements read from the camera arrive with a variable time step. A method to implement a Kalman filter that handles asynchronous measurements must for that reason be developed. First of all, the filter does not know the time until the next filter update. Consequently the a priori covariance and state estimate needs to be calculated at the beginning of each step $k$.
+\begin{align}
+    \vect{\hat{x}}^{-}_{k}&=\vect{\Phi}_{k} \vect{\hat{x}}_{k-1}+\vect{\Delta}_{k} \vect{u}_{k-1} \\
+    \vect{P}^{-}_{k}&=\vect{\Phi}_{k}\vect{P}_{k-1}\vect{\Phi}_{k}^{\top}
+\end{align}
+where $\vect{\hat{x}}^{-}_{k}$ and $\vect{P}^{-}_{k}$ is the a priori state estimate and covariance respectively. $\vect{\hat{x}}_{k-1}$ and $\vect{u}_{k-1}$ is the state estimate and system input at time $t_{k-1}$. The state transition matrix $\vect{\Phi}_k$ and the input matrix $\vect{\Delta}_{k}$ are time varying matrices due to change in $\Delta t=t_k-t_{k-1}$. 
+
+The Kalman filter equations for a filter with asynchronous update rate can be given on the form:
+\begin{align}
+  \vect{x}_{k}&=\vect{\Phi}_{k} \vect{x}_{k-1} + \vect{\Delta}_{k} \vect{u}_{k-1} + \vect{w}_{k-1}\nonumber\\
+  \vect{z}_k&=\vect{H}_k \vect{x}_k+\vect{v}_k\label{eq:kf1}
+\end{align}
+where $\vect{x}_k$ is the process state vector at time $t_k$, $\vect{\Phi}_k$ and $\vect{\Delta}_k$ is the state and input transition matrix respectively, $\vect{w}_k$ and $\vect{v}_k$ is the zero-mean Gaussian white noise, $\vect{z}_k$ is the 
+measurement at time $t_k$ and $\vect{H}_k$ is the connection between the measurement and state vector.
+
+Furthermore, \cite{brown1997introduction} describes a method for updating the filter with one measurement at a time. The $\vect{H}$ matrix can be rewrite in partitioned form as:
+\begin{equation}
+    \vect{H}_{k}=
+    \left[
+    \begin{array}{c}
+        \vect{H}_{k}^a\\ \hdashline[2pt/2pt]
+        \vect{H}_{k}^b\\ \hdashline[2pt/2pt]
+        \vdots \\
+    \end{array}
+    \right]
+\end{equation}
+Where each block represent its corresponding measurement a, b ... . When updating the filter with a measurement, all blocks are set to zero except the block representing the measurement that is updating the filter. This filter update sequence is illustrated in figure~\ref{fig:sensUpdate}
+
+\begin{figure}[ht]
+    \centering
+    \import{img/}{kalman_filter_update.pdf_tex}
+    \caption{Updating the Kalman filter with sensor input}
+    \label{fig:sensUpdate}
+    %\vspace{-318pt}
+\end{figure}
+As figure~\ref{fig:sensUpdate} illustrates, the filter is updated if there is a new measurement available. If there are multiple measurements available at the same time-step $k$, the filter iterates trough all the measurements and updates the filter with one measurement at a time. 
+
+There is also possible to update the states and error covariance between measurement by performing dead reckoning. State estimate request can for instance be required from a controller or user interface. One simple way to implement dead reckoning in practice, is to use the same filter update sequence as given in figure~\ref{fig:sensUpdate} and set the $\vect{H}_k$ matrix to zero, this updates both the state estimate and its corresponding error covariance. 
+
+%given that the measurement errors are uncorrelated.
+
+\subsection{Position and linear velocity state estimation}\label{ssub:pos_and_vel_state}
+For applications concerning landing pads that have zero or small pitch and roll angles, a position and linear velocity state estimation may be suitable.
+
+In the application of landing on a moving landing pad, the most essential states are the relative distance between the UAV and the landing pad and the velocity of the landing pad, often referred to as speed over ground. For convenience, the states and the measurements are all given relative to NED. The states are therefore chosen to be the $6\times1$ vector
+\begin{equation}\label{eq:states_pos}
+    \vect{x}
+    =
+    \begin{bmatrix}
+        \vect{p}^{n}_{l/u}\\
+        \vect{v}^{n}_{l/n}
+    \end{bmatrix}
+\end{equation}
+
+By using a constant velocity approximation of the UAV and landing pad, the dynamic equations can be stated as
+\begin{align}\label{eq:dyn_eq_pos}
+    \vect{p}^{n}_{l/u,k}&=\vect{p}^{n}_{l/u,k-1}+(\vect{v}^{n}_{l/n,k-1}-\vect{v}^{n}_{u/n,k-1})(t_{k}-t_{k-1})+\vect{w}_k\\
+    \vect{v}^{n}_{l/n,k}&=\vect{v}^{n}_{l/n,k-1}+\vect{w}_k
+\end{align}
+where $t_k$ and $t_{k-1}$ are the time-stamps in seconds of the time-steps $k$ and $k-1$ respectively. Figure~\ref{fig:posVect} gives a graphical illustration of how the relative position vector $\vect{p}^{n}_{l/u}$ can be written as a function of the UAV- and landing pad position vectors, $\vect{p}^{n}_{u/n}$ and $\vect{p}^{n}_{l/n}$.
+\begin{figure}[ht]
+    \centering
+    \def\svgwidth{.5\columnwidth}
+    \import{img/}{refFrames.pdf_tex}
+    \caption{Position vectors}
+    \label{fig:posVect}
+\end{figure}
+
+The equations in~\ref{eq:dyn_eq_pos} can be written on the Kalman filter equation form of given in~\ref{eq:kf1} by selecting the matrices $\vect{\Phi}_k$, $\vect{\Delta}_k$ and $\vect{H}_k$ as
+\begin{align}\label{eq:mat_pos}
+    \vect{\Phi}_k&=
+    \begin{bmatrix}
+        \vect{I} & \vect{\Delta t}\\
+        \vect{0} & \vect{I}
+    \end{bmatrix}
+    &
+    \vect{\Delta}_k&=
+    \begin{bmatrix}
+        -\vect{\Delta t}\\
+        \vect{0}
+    \end{bmatrix}
+    &
+    \vect{H}_k&=
+    \begin{bmatrix}
+        \vect{I} & \vect{0}\\
+        \vect{I} & \vect{0}\\
+        \vect{0} & \vect{I}
+    \end{bmatrix}
+\end{align}
+where $\vect{I}$ is the $3\times3$ identity matrix, $\vect{0}$ is a $3\times3$ matrix with all elements equal to zero and $\vect{\Delta t}$ is a $3\times3$ matrix with the relative time-step $(t_{k}-t_{k-1})$ on its diagonal and zeros on the none-diagonal elements. It is worth nothing that the $\vect{\Phi}$ and $\vect{\Delta}$ matrices are given in the time-step $k$ and not $k-1$. The system is initially represented as time invariant, but the inconsistence in the time-steps makes the system matrices a function of time. The input vector $\vect{u}$ and measurement vector $\vect{z}$ are then given as
+\begin{align}
+    \vect{u}&=
+    \begin{bmatrix}
+        \vect{v}^n_{u/n}    
+    \end{bmatrix}
+    &
+    \vect{z}&=
+    \begin{bmatrix}
+        \vect{p}^n_{l/n}-\vect{p}^n_{u/n}\\
+        \vect{p}^n_{l/u}\\
+        \vect{v}^n_{l/n}
+    \end{bmatrix}
+\end{align}
+where $\vect{p}^n_{l/n}-\vect{p}^n_{u/n}$ represents the position measurements from the landing pad subtracted by the position measurements from the \gls{UAV}. The second row in the measurement vector $\vect{z}$ corresponds to the relative ArUco measurement $\vect{p}^n_{l/u}$ and the last row is the landing pad velocity measurement transmitted from the landing pad.
+
+\subsection{Position, linear velocity and bias state estimation}\label{ssub:pos_vel_and_bias_state}
+As given in section~\ref{sub:UAVSensors}, the position estimate from the UAV and landing pad includes the biases $\vect{\beta}_{l/n}^{n}$ and $\vect{\beta}_{u/n}^{n}$ respectively. These biases varies and should therefore be estimates during the flight. One method to deal with these biases is to estimates them in the Kalman filter as extra states. To reduce the number of states in the filter, the biases can be reduced to a relative bias given as
+\begin{equation}\label{eq:biasState}
+    \vect{\beta}_{l/u}^{n}=\vect{\beta}_{l/n}^{n}-\vect{\beta}_{u/n}^{n}
+\end{equation}
+By adding the the bias states given in equation~\ref{eq:biasState} to the filter, the state vector and filter equations are extended to
+\begin{equation}
+    \vect{x}
+    =
+    \begin{bmatrix}
+        \vect{p}^{n}_{l/u}\\
+        \vect{v}^{n}_{l/n}\\
+        \vect{\beta}_{l/u}^{n}
+    \end{bmatrix}
+\end{equation}
+and
+\begin{align}
+    \vect{p}^{n}_{l/u,k}&=\vect{p}^{n}_{l/u,k-1}+(\vect{v}^{n}_{l/n,k-1}-\vect{v}^{n}_{u/n,k-1})(t_{k}-t_{k-1})+\vect{w}_k\\
+    \vect{v}^{n}_{l/n,k}&=\vect{v}^{n}_{l/n,k-1}+\vect{w}_k\\
+    \vect{\beta}_{l/u,k}^{n}&=\vect{\beta}_{l/u,k-1}^{n}+\vect{w}_k
+\end{align}
+where the bias is modeled as a Gaussian random walk model. The corresponding state transition matrix, input transition matrix and measurement connection matrix are then given as.
+\begin{align}\label{eq:mat_pos_bias}
+    \vect{\Phi}_k&=
+    \begin{bmatrix}
+        \vect{I} & \vect{\Delta t} & \vect{0}\\
+        \vect{0} & \vect{I} & \vect{0}\\
+        \vect{0} & \vect{0} & \vect{I}
+    \end{bmatrix}
+    &
+    \vect{\Delta}_k&=
+    \begin{bmatrix}
+        -\vect{\Delta t}\\
+        \vect{0}\\
+        \vect{0}
+    \end{bmatrix}
+    &
+    \vect{H}_k&=
+    \begin{bmatrix}
+        \vect{I} & \vect{0} & \vect{I}\\
+        \vect{I} & \vect{0} & \vect{0}\\
+        \vect{0} & \vect{I} & \vect{0}
+    \end{bmatrix}
+\end{align}
+As the measurement connection matrix $\vect{H}_k$ illustrates, the relative position measurement from the UAV and landing pad does also include the bias $\vect{\beta}^n_{l/u}$. This gives the input and measurement vectors
+\begin{align}
+    \vect{u}&=
+    \begin{bmatrix}
+        \vect{v}^n_{u/n}    
+    \end{bmatrix}
+    &
+    \vect{z}&=
+    \begin{bmatrix}
+        \vect{p}^n_{l/n}-\vect{p}^n_{u/n}+\vect{\beta}^n_{l/u}\\
+        \vect{p}^n_{l/u}\\
+        \vect{v}^n_{l/n}
+    \end{bmatrix}
+\end{align}
+
+%\subsubsection{Position and heading state estimation}\label{sec:posHeading}
+
+\subsection{Full state estimation}\label{sec:fullState}
+In addition to the relative position, landing pad velocity and bias, the relative orientation and landing pad angular velocity are added as states in the full state estimator. 
+\begin{equation}\label{eq:stateVect}
+    \vect{x}
+    =
+    \begin{bmatrix}
+        \vect{p}^{n}_{l/u}\\
+        \vect{\Theta}_{ul}\\
+        \vect{v}^{n}_{l/n}\\
+        \vect{\omega}^{n}_{l/n}\\
+        \vect{\beta}_{l/u}^{n}
+    \end{bmatrix}
+\end{equation}
+Here, the  measurement and input vectors $z$ and $u$, are supplemented with the measurements of orientation and angular velocities.
+\begin{align}
+    \vect{z}&=
+    \begin{bmatrix}
+        \vect{p}^{n}_{l/n} - \vect{p}^{n}_{u/n} + \vect{\beta}_{l/u}^{n}\\
+        \vect{p}^{n}_{l/u}\\
+        \vect{\Theta}_{ul}\\
+        \vect{v}^{n}_{l/n}\\
+        \vect{\omega}^{n}_{l/n}
+    \end{bmatrix}
+    &
+    \vect{u}&=
+    \begin{bmatrix}
+        \vect{v}^{n}_{u/n}\\
+        \vect{\omega}^{n}_{u/n}
+    \end{bmatrix}
+\end{align}
+where $\vect{\Theta}_{ul}$ is measured form the fiducial marker, $\vect{\omega}^{n}_{l/n}$ is measured from the landing pad navigation system and $\vect{\omega}^{n}_{u/n}$ is measured from the UAV navigation system. By still using the approach of constant velocity on the landing pad, we can formulate the discrete dynamic equations as
+\begin{align*}
+    \vect{p}^{n}_{l/u, k}&=\vect{p}^{n}_{l/u, k-1}+(\vect{v}^{n}_{l/n, k-1} +\vect{v}^{n}_{u/n, k-1})(t_{k}-t_{k-1})+\vect{w}_k\\
+    \vect{\Theta}_{ul, k}&=\vect{\Theta}_{ul, k-1}+(\vect{\omega}^{n}_{l/n, k-1}+\vect{\omega}^{n}_{u/n, k-1})(t_{k}-t_{k-1})+\vect{w}_k\\
+    \vect{v}^{n}_{l/n, k}&=\vect{v}^{n}_{l/n, k-1}+\vect{w}_k\\
+    \vect{\omega}^{n}_{l/n, k}&=\vect{\omega}^{n}_{l/n, k-1}+\vect{w}_k\\
+    \vect{\beta}_{l/u,k}^{n}&=\vect{\beta}_{l/u,k-1}^{n}+\vect{w}_k
+\end{align*}
+This gives the state and input transition matrices
+\begin{equation*}
+    \vect{\Phi}_{k-1}=
+    \begin{bmatrix}
+        \vect{I} & \vect{0} & \vect{\Delta t} & \vect{0} & \vect{0}\\
+        \vect{0} & \vect{I} & \vect{0} & \vect{\Delta t} & \vect{0}\\
+        \vect{0} & \vect{0} & \vect{I} & \vect{0} & \vect{0}\\
+        \vect{0} & \vect{0} & \vect{0} & \vect{I} & \vect{0}\\
+        \vect{0} & \vect{0} & \vect{0} & \vect{0} & \vect{I}
+    \end{bmatrix}
+\end{equation*}
+\begin{equation*}
+    \vect{\Delta}=
+    \begin{bmatrix}
+        \vect{\Delta t} & \vect{0}\\
+        \vect{0} & \vect{\Delta t}\\
+        \vect{0} & \vect{0}\\
+        \vect{0} & \vect{0}
+    \end{bmatrix}
+\end{equation*}
+And the measurement matrix
+\begin{equation*}
+    \vect{H}_k=
+    \begin{bmatrix}
+        \vect{I} & \vect{0} & \vect{0} & \vect{0} & \vect{I}\\
+        \vect{I} & \vect{0} & \vect{0} & \vect{0} & \vect{0}\\
+        \vect{0} & \vect{I} & \vect{0} & \vect{0} & \vect{0}\\
+        \vect{0} & \vect{0} & \vect{I} & \vect{0} & \vect{0}\\
+        \vect{0} & \vect{0} & \vect{0} & \vect{I} & \vect{0}
+    \end{bmatrix}
+\end{equation*}
+
+\subsection{State Estimation for Static Landing Pad} % (fold)
+\label{sub:state_estimation_for_static_landing_pad}
+For applications where we have the prior knowledge that the landing will be static during the flight, this information can be used in the state estimator to improve the estimates. One method of adjusting the Kalman filter in the reduced state estimator, is to modify the $\vect{\Phi}_k$ matrix such that the dynamic equation describing the velocity of the landing pad is stated as
+\begin{equation}
+    \vect{v}_{l/n,k}^n=0+\vect{w}_k
+\end{equation}
+Furthermore, the elements in the covariance matrix $\vect{Q}_k$, representing the landing pad velocity estimate is to be set close to zero. For the full state estimation filters, both the linear- and angular velocity is to be set to zero, and the corresponding elements in the covariance matrix is to be set close to zero.
+\begin{align}
+    \vect{v}_{l/n,k}^n=0+\vect{w}_k\\
+    \vect{\omega}_{l/n,k}^n=0+\vect{w}_k
+\end{align}
+% subsection state_estimation_for_static_landing_pad (end)

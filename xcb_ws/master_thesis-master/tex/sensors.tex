@@ -1,0 +1,183 @@
+%!TEX root = ../Thesis.tex
+\section{Sensor input}\label{sec:sensor_input}
+
+Both the UAV and the landing pad consists of navigation sensors such as GNSS, magnetometers, barometer, linear accelerometers and rate gyros. Measurements from these sensors are then used in their already implemented pose and velocity state estimators. The \gls{GNSS}/\gls{INS} integration will therefore not be present in this assignment. Some solutions to the \gls{GNSS}/\gls{INS} problem can be studied in future details in \cite{vik2009integrated}. The resulting pose and velocity estimates and their corresponding error covariance are treated as new measurements in the state estimator developed in section~\ref{sec:stateEstimation}. The fiducial pose estimate given from the ArUco tag detection in section~\ref{sec:fiducialMarkerAndCamera} is also treated as a measurement and fed in to the state estimator. Sensor equations are developed in this section to get an understanding of the biases and noise in these measurements.
+
+%All the sensors taken in to the Kalman filter are collected trough the ROS node node{\_}navigaion. Node{\_}navigation subscribes several messages from the UAV, 	Camera and landing pad.
+
+\subsection{GNSS}\label{sec:gnss}
+In this assignment, where the UAV is flying relatively close to the defined NED frame, we can state the \gls{GNSS} position and velocity equations as: 
+\begin{align}
+  \vect{y}_{pos,GNSS}&=
+  \begin{bmatrix}
+    \lambda\\
+    \phi\\
+    h
+  \end{bmatrix}
+  +\vect{w}_{pos}\\
+  \vect{y}_{vel,GNSS}&=\vect{v}_{b/n}^{b}+\vect{w}_{vel}
+\end{align}
+Where $\lambda$ and $\phi$ is longitude and latitude respectively, often stated as $\vect{\Theta}_{en} \in \mathcal{S}^2$. $h\in \R$ is the altitude above the WGS-84 ellipsoid. $\vect{w}_{pos} \in \R^3$ is the zero-mean Gaussian white noise. $\vect{v}_{b/n}^{n}$ and $\vect{w}_{vel}$ is the linear velocity of the UAV relative to the NED frame and its associated zero-mean Gaussian white noise. Section~\ref{sub:geodetic_coordinates} describes a method for transforming the geodetic coordinates to a position vector relative to NED. A \gls{GNSS} receiver gives position estimates at typically 1-5Hz.
+
+\subsection{Inertial Measurement Unit}\label{sec:imu}
+By combining the benefit of global positioning from the \gls{GNSS} system and the high measurements rate from the accelerometers, magnetometers and rate gyros, a fast and accurate position estimate can be achieved. This sensor combination is commonly used, and for that reason the industry has developed a unit including three accelerometers, rate gyros and magnetometers, named \gls{IMU} (\cite{beard2012small}). Further on in this section, the \gls{IMU} is assumed to be placed in the center of the body frame with the sensors pointing parallel to the body axis.
+
+\subsubsection*{Accelerometers}\label{sec:accel}
+There are three major accelerations affecting the \gls{IMU} during a flight. Its the accelerations from the body due to changes in the linear velocity, centripetal acceleration due to rotational velocity and the gravitational acceleration. The sensor equation can be derived as (\cite{vik2009integrated}):
+\begin{equation}
+  \vect{y}_{accel}=
+  \dot{\vect{v}}_{b/n}^{b}+\vect{\omega}_{b/n}^{b}\times\vect{v}_{b/n}^{b}-
+  \vect{R}_{n}^{b}
+  \begin{bmatrix}
+    0\\
+    0\\
+    g
+  \end{bmatrix}
+  +\vect{\beta}_{accel}
+  +\vect{w}_{accel}
+\end{equation}
+where $\vect{\beta}_{accel}$ is the bias from sensor drifting and other none estimated terms. The $\vect{w}_{accel}$ is the zero-mean Gaussian white noise.
+
+\subsubsection*{Rate gyro}\label{sec:rateGyro}
+Rate gyros measures the angular velocity about the sensors sensitive axis with respect to the Earth-centered inertial frame. Du to high measurement biases in MEMS gyros (10-3600deg/hr), the measurement of Earth rotation can therefore be neglected. The resulting rate gyro sensor equation can be derived as
+\begin{equation}\label{eq:rateGyro}
+  \vect{y}_{gyro}=\vect{\omega}_{b/n}^{b}+\vect{\beta}_{gyro}+\vect{w}_{gyro}
+\end{equation}
+$\vect{\omega}_{b/n}^{b}$ $\vect{\beta}_{gyro}$ is the bias from sensor drifting and other none estimated terms while 
+$\vect{w}_{gyro}$ is the zero-mean Gaussian white noise.
+
+
+\subsubsection*{Magnetometer}\label{sec:mag}
+A magnetometer measures the strength of a magnetic field in its sensing axis. The direction of the field can be measured by using three sensors placed orthogonal to each other. If the vehicles horizontal plane is leveled with 
+the North East plane, in other words $\phi\approx\theta\approx0$, the magnet heading angle can be measured as (\cite{Fossen2011}, \cite{beard2012small}):
+\begin{equation}
+  \psi_m=-\atantwo(m_{y}\text{,}m_{x})
+\end{equation}
+where $m_{x}$ and $m_{y}$ is the magnetic reading along the x and y axis respectively. The $\atantwo$ function is the two-argument arctangent function that uses the sign of $m_y$ and $m_x$ to select the 
+appropriate quadrant (\cite{spong2006robot}).
+
+To be able to derive the heading equation for applications that do not have approximated zero roll and pitch angles, the angles need to be measured or estimated. By achieving these angles, the equation 
+can be stated as (\cite{Fossen2011}):
+\begin{equation}
+  \begin{split}
+    h_x&=m_x \cos(\theta) + m_y\sin(\theta)\sin(\phi)+m_z\cos(\phi)\sin(\theta)\\
+    h_y&=m_y\cos(\phi)-m_z\sin(\phi)\\
+    \psi_m&=
+    \left \{
+      \begin{tabular}{lll}
+	$-\atantwo(h_y,h_x)$ &$\text{if}$ & $h_x\neq0$ \\
+	$\pi/2$ &$\text{if}$ &$h_x=0,h_y<0$ \\
+	$3\pi/2$ &$\text{if}$ &$h_x=0,h_y>0$
+      \end{tabular}
+    \right \}
+  \end{split}
+\end{equation}
+where $h_x$ and $h_y$ are the horizontal components from $\vect{m}$ transformed to $b$ frame. These equations are often calculated in the \textit{strapdown equations}, where $\psi_m$ is the output from these equations and 
+can be treated as a measurement $y_{mag}$. Due to the difference in magnetic north and true north, in other words $\psi=\delta+\psi_m$, the measurement will include a bias term (\cite{beard2012small}). The measurement 
+equation is therefore stated as:
+\begin{equation}
+  y_{mag}=\psi_{b/n}^{b}+\beta_{mag}+w_{mag}
+\end{equation}
+where $\beta_{mag}$ is the bias term due to Earth's magnetic field declination and other magnetic fields and $w_{mag}$ is the zero-mean Gaussian white noise. The disadvantage of the magnetometer is 
+that it is affected by other time varying magnetic fields, such as power cables and motors. 
+
+\subsection{Barometer}\label{sec:baromter}
+An important navigation-parameter in aerial vehicles is the height above ground. By using an absolute pressure sensor measuring the atmospheric pressure relative to a fixed reference pressure, an relative altitude estimate can be calculated using a basic equation of hydrostatics for a static fluid (\cite{beard2012small})
+\begin{equation}
+  \delta p = \rho g \delta z
+\end{equation}
+where $\delta p$ is the change in pressure due to change in height $\delta z$, for a static fluid and constant density $\rho$. The air in the atmosphere is compressible and have a density varying on altitude and weather-conditions. 
+On the other hand, the variation in density at altitudes lower than 1000m are so small that they can be neglected. The variations in weather-conditions can also be neglected for quadrotor applications due to the short fly-range.
+The change in pressure $\delta p$, can be defined as $p_g - p_m$, where $p_g$ and $p_m$ is the pressure at sea level and sensor altitude respectively. Hence, the sensor equation can be given as in \ref{eq:pressure}.
+\begin{equation}\label{eq:pressure}
+  y_{pres}=\rho g h + \beta_{pres}+w_{pres}
+\end{equation}
+Where $\beta_{pres}$ is the bias term, $w_{pres}$ is the zero-mean Gaussian white noise and $\rho$ is the density of air.
+
+% subsection sensor_equations (end)
+
+\subsection{UAV and Landing Pad Sensors}\label{sub:UAVSensors}
+As mentioned in the introduction of this chapter, the sensor outputs from the GNNS, IMU and barometer are processed in an already implemented navigation equations and state estimator in the UAV and the landing pad.
+
+\begin{table}[ht]
+\centering 
+  \begin{tabular}{l c c}
+    \toprule
+    \textbf{Measurement Type}&\textbf{Measurement UAV}&\textbf{Measurement LP} \\\hline \\[-1em]
+    Global position&$\vect{p}^{ge}_{u}$&$\vect{p}^{ge}_{l}$\\ \\[-1em]
+    Global position covariance&$\vect{r}_{p_u^{e}}$&$\vect{r}_{p_l^{e}}$\\ \\[-1em]
+    Orientation&$\vect{q}_{eu}$&$\vect{q}_{el}$\\ \\[-1em]
+    Linear velocity&$\vect{v}^e_{u/e}$&$\vect{v}^e_{l/e}$\\ \\[-1em]
+    Angular velocity&$\vect{\omega}^e_{u/e}$&$\vect{\omega}^e_{l/e}$\\ \\[-1em]
+    \bottomrule
+  \end{tabular}
+  \caption{Measurement types received from the UAV and landing pad}
+  \label{tab:measurementOverview} 
+\end{table}
+Table~\ref{tab:measurementOverview} gives an overview of the measurements read form the UAV and the landing pad, where $\vect{p}^g_u$ and $\vect{p}^g_l$ are the position given in geodetic coordinates and $\vect{r}_{p_u^{e}}$ and $\vect{r}_{p_l^{e}}$ are the associated covariance given in ENU. $\vect{q}_{eu}$ and $\vect{q}_{el}$ are the UAV and the landing pad orientation relative to ENU given in quaternions. $\vect{v}^e_{u/e}$ and $\vect{v}^e_{l/e}$ are the linear velocities of the \gls{UAV} and landing pad given in and relative to ENU, and $\vect{\omega}^e_{u/e}$ and $\vect{\omega}^e_{l/e}$ are the angular velocities of the \gls{UAV} and landing pad given in and relative to ENU. To be able to use the measurements in the state estimator developed in chapter~\ref{cha:navigation}, all the measurements needs to be transformed according to the measurement vector given in the same chapter. The position measurements are the results from the internal navigation filter in the UAV and the landing pad. The position estimates $\vect{p}^{ge}_{u}$ and $\vect{p}^{ge}_{l}$ does therefore include the benefit of global position from the GNSS sensor and high frequency relative position from the IMU and barometer. Section~\ref{sub:geodetic_coordinates} presents a method to represent the geodetic coordinates relative to the $n$ frame. Equation~\ref{eq:uav_pos_transf} and \ref{eq:lp_pos_transf} summarizes the method used to transfer the position to NED.
+\begin{align}
+  \vect{p}^n_{u/n}&=\vect{R}_{f}^n(\vect{p}^{ge}_{loc})(\vect{p}_u^f-\vect{p}_{loc}^f)+\vect{\beta}_{u/n}^{n}+\vect{w}_{p_u}\label{eq:uav_pos_transf} \\
+  \vect{p}^n_{l/n}&=\vect{R}_{f}^n(\vect{p}^{ge}_{loc})(\vect{p}_l^f-\vect{p}_{loc}^f)+\vect{\beta}_{l/n}^{n}+\vect{w}_{p_l}\label{eq:lp_pos_transf}
+\end{align}
+where $\vect{p}_{loc}$ is the local NED origin and $\vect{R}_{f}^n$ is the rotation matrix from ECEF to NED given in equation~\ref{eq:ECEF2NED}. $\vect{p}_u^f$ and $\vect{p}_l^f$ are the \gls{UAV} and landing pad position given in ECEF. The transformation from geodetic coordinates to ECEF are given in equation~\ref{eq:ge_to_f}. $\vect{\beta}$ and $\vect{w}$ is the measurement bias and zero-mean Gaussian white noise respectively.
+
+The position covariance matrices $\vect{r}_{p_u^e}\in \R^{3x3}$ and $\vect{r}_{p_l^e}\in \R^{3x3}$ does only contain elements on its diagonal and represents the position error covariance, and are given in the ENU frame. The covariance matrix can be represented in the NED frame by switching the element $\vect{r}_{p^e}(1,1)$ with the element $\vect{r}_{p^e}(2,2)$.
+\begin{equation}
+  \vect{r}_{p^n}=
+  \begin{bmatrix}
+    \vect{r}_{p^e(2,2)} & 0 & 0\\
+    0 & \vect{r}_{p^e(1,1)} & 0\\
+    0 & 0 & \vect{r}_{p^e(3,3)}\\
+  \end{bmatrix}
+\end{equation}
+
+The rotation between the ENU frame and body frame $\vect{q}_{eu}=[\vect{\eta}_{eu},\vect{\epsilon}_{1,eu},\vect{\epsilon}_{2,eu},\vect{\epsilon}_{3,eu}]^{\top}$ and $\vect{q}_{el}=[\vect{\eta}_{el},\vect{\epsilon}_{1,el},\vect{\epsilon}_{2,el},\vect{\epsilon}_{3,el}]^{\top}$ can be transformed to represent the rotation between the NED frame and body frame by using the geometric relations given in \ref{eq:uav_orient_transf}.
+\begin{align}
+\label{eq:uav_orient_transf}
+  \vect{q}_{nu}&=
+  \begin{bmatrix}
+    \vect{\eta}_{eu}\\
+    \vect{\epsilon}_{2,eu}\\
+    \vect{\epsilon}_{1,eu}\\
+    -\vect{\epsilon}_{3,eu}
+  \end{bmatrix}
+  +\vect{w}_q
+  &
+  \vect{q}_{nl}&=
+  \begin{bmatrix}
+    \vect{\eta}_{el}\\
+    \vect{\epsilon}_{2,el}\\
+    \vect{\epsilon}_{1,el}\\
+    -\vect{\epsilon}_{3,el}
+  \end{bmatrix}
+  +\vect{w}_q
+\end{align}
+where $\vect{w}_q$ is the zero-mean Gaussian white noise
+
+The linear and angular velocities can be given related to NED by using the rotation matrix $\vect{R}_e^n(\vect{\Theta}_{ne})$ given in~\ref{eq:rotMatENU2NED}
+\begin{align}
+  \vect{v}^n_{u/n}&=\vect{R}_e^n(\vect{\Theta}_{ne})\vect{v}^e_{u/e}+\vect{w}_v\label{eq:uav_vel_transf}\\
+  \vect{\omega}^n_{u/n}&=\vect{R}_e^n(\vect{\Theta}_{ne})\vect{\omega}^e_{u/e}+\vect{w}_{\omega}\label{eq:uav_angvel_transf}\\
+  \vect{v}^n_{l/n}&=\vect{R}_e^n(\vect{\Theta}_{ne})\vect{v}^e_{l/e}+\vect{w}_v\label{eq:lp_vel_transf}\\
+  \vect{\omega}^n_{l/n}&=\vect{R}_e^n(\vect{\Theta}_{ne})\vect{\omega}^e_{l/e}+\vect{w}_{\omega}\label{eq:lp_angvel_transf}
+\end{align}
+where $\vect{w}_v$ and $\vect{w}_{\omega}$ are the respective zero-mean Gaussian white noise for the linear and angular velocity.
+
+%\subsection{Landing Pad Sensors} % (fold)
+%\label{sub:landing_pad_sensors}
+
+
+
+% subsection landing_pad_sensors (end)
+
+
+%\subsection{Fiducial Marker} % (fold)
+%\label{sub:fiducial_marker}
+
+% subsection fiducial_marker (end)
+
+
+
+
+
+% subsection coordinate_transformation (end)

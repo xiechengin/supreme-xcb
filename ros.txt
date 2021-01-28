@@ -1,0 +1,29 @@
+rosnode list
+rosnode info node_name
+rostopic list
+rostopic echo
+rostopic info
+rostopic pub /topic type args
+catkin_create_pkg package_name depend1 depend2 depend3
+
+
+
+
+#启动底盘
+roslaunch base_controller hxzh_driver.launch
+#启动建图
+cd cat_ws
+source devel_isolated/setup.bash
+roslaunch cartographer_ros hxzh_backpack_2d.launch
+rosservice call /finish_trajectory 0
+rosrun map_server map_saver -f hxzh_test
+#启动定位
+roslaunch hxzh_localization hxzh_localization.launch
+#键盘控制
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+#启动巡线模式
+roslaunch waypoint_follower run.launch
+#启动遥控手柄
+roslaunch js_turtle js_turtle.launch
+
+catkin_ws/src/hxzh_localization/launch
