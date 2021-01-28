@@ -1,0 +1,828 @@
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_popcnt.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_caaf6/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_caaf6.dir/build.make CMakeFiles/cmTC_caaf6.dir/build
+Building CXX object CMakeFiles/cmTC_caaf6.dir/cpu_popcnt.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_caaf6.dir/cpu_popcnt.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_popcnt.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_popcnt.cpp:14:4: error: "__POPCNT__ is not defined by compiler"
+#  error "__POPCNT__ is not defined by compiler"
+   ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_popcnt.cpp:22:13: error: use of undeclared identifier 'CV_POPCNT_U32'
+    int j = CV_POPCNT_U32(1);
+            ^
+2 errors generated.
+make[1]: *** [CMakeFiles/cmTC_caaf6.dir/cpu_popcnt.cpp.o] Error 1
+make: *** [cmTC_caaf6/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_sse42.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cf934/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_cf934.dir/build.make CMakeFiles/cmTC_cf934.dir/build
+Building CXX object CMakeFiles/cmTC_cf934.dir/cpu_sse42.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_cf934.dir/cpu_sse42.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_sse42.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_sse42.cpp:5:24: error: always_inline function '_mm_crc32_u8' requires target feature 'sse4.2', but would be inlined into function 'main' that is compiled without support for 'sse4.2'
+    unsigned int res = _mm_crc32_u8(1, 2);
+                       ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_cf934.dir/cpu_sse42.cpp.o] Error 1
+make: *** [cmTC_cf934/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_fp16.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_52312/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_52312.dir/build.make CMakeFiles/cmTC_52312.dir/build
+Building CXX object CMakeFiles/cmTC_52312.dir/cpu_fp16.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_52312.dir/cpu_fp16.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_fp16.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_fp16.cpp:26:2: error: "FP16 is not supported"
+#error "FP16 is not supported"
+ ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_fp16.cpp:31:18: error: use of undeclared identifier 'test'
+  printf("%d\n", test());
+                 ^
+2 errors generated.
+make[1]: *** [CMakeFiles/cmTC_52312.dir/cpu_fp16.cpp.o] Error 1
+make: *** [cmTC_52312/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_59305/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_59305.dir/build.make CMakeFiles/cmTC_59305.dir/build
+Building CXX object CMakeFiles/cmTC_59305.dir/cpu_avx.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_59305.dir/cpu_avx.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx.cpp:2:2: error: "__AVX__ define is missing"
+#error "__AVX__ define is missing"
+ ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_59305.dir/cpu_avx.cpp.o] Error 1
+make: *** [cmTC_59305/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx2.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8d214/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_8d214.dir/build.make CMakeFiles/cmTC_8d214.dir/build
+Building CXX object CMakeFiles/cmTC_8d214.dir/cpu_avx2.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_8d214.dir/cpu_avx2.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx2.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx2.cpp:2:2: error: "__AVX2__ define is missing"
+#error "__AVX2__ define is missing"
+ ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_8d214.dir/cpu_avx2.cpp.o] Error 1
+make: *** [cmTC_8d214/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_326e7/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_326e7.dir/build.make CMakeFiles/cmTC_326e7.dir/build
+Building CXX object CMakeFiles/cmTC_326e7.dir/cpu_avx512.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_326e7.dir/cpu_avx512.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512.cpp:11:2: error: "AVX512 is not supported"
+#error "AVX512 is not supported"
+ ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_326e7.dir/cpu_avx512.cpp.o] Error 1
+make: *** [cmTC_326e7/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512common.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8be45/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_8be45.dir/build.make CMakeFiles/cmTC_8be45.dir/build
+Building CXX object CMakeFiles/cmTC_8be45.dir/cpu_avx512common.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_8be45.dir/cpu_avx512common.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512common.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512common.cpp:12:2: error: "AVX512-COMMON is not supported"
+#error "AVX512-COMMON is not supported"
+ ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_8be45.dir/cpu_avx512common.cpp.o] Error 1
+make: *** [cmTC_8be45/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512knl.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3df3a/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_3df3a.dir/build.make CMakeFiles/cmTC_3df3a.dir/build
+Building CXX object CMakeFiles/cmTC_3df3a.dir/cpu_avx512knl.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_3df3a.dir/cpu_avx512knl.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512knl.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512knl.cpp:14:2: error: "AVX512-KNL is not supported"
+#error "AVX512-KNL is not supported"
+ ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_3df3a.dir/cpu_avx512knl.cpp.o] Error 1
+make: *** [cmTC_3df3a/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512knm.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_80aff/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_80aff.dir/build.make CMakeFiles/cmTC_80aff.dir/build
+Building CXX object CMakeFiles/cmTC_80aff.dir/cpu_avx512knm.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_80aff.dir/cpu_avx512knm.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512knm.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512knm.cpp:15:2: error: "AVX512-KNM is not supported"
+#error "AVX512-KNM is not supported"
+ ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_80aff.dir/cpu_avx512knm.cpp.o] Error 1
+make: *** [cmTC_80aff/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512knm.cpp'
+    check option: ' -mavx512f -mavx512cd -mavx512er -mavx512pf -mavx5124fmaps -mavx5124vnniw -mavx512vpopcntdq'
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4f13e/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_4f13e.dir/build.make CMakeFiles/cmTC_4f13e.dir/build
+Building CXX object CMakeFiles/cmTC_4f13e.dir/cpu_avx512knm.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -mavx512f -mavx512cd -mavx512er -mavx512pf -mavx5124fmaps -mavx5124vnniw -mavx512vpopcntdq -std=c++11 -o CMakeFiles/cmTC_4f13e.dir/cpu_avx512knm.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512knm.cpp
+clang: error: unknown argument: '-mavx5124fmaps'
+clang: error: unknown argument: '-mavx5124vnniw'
+make[1]: *** [CMakeFiles/cmTC_4f13e.dir/cpu_avx512knm.cpp.o] Error 1
+make: *** [cmTC_4f13e/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512skx.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b7fa2/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_b7fa2.dir/build.make CMakeFiles/cmTC_b7fa2.dir/build
+Building CXX object CMakeFiles/cmTC_b7fa2.dir/cpu_avx512skx.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_b7fa2.dir/cpu_avx512skx.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512skx.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512skx.cpp:30:2: error: "AVX512-SKX is not supported"
+#error "AVX512-SKX is not supported"
+ ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_b7fa2.dir/cpu_avx512skx.cpp.o] Error 1
+make: *** [cmTC_b7fa2/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512cnl.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_95bd4/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_95bd4.dir/build.make CMakeFiles/cmTC_95bd4.dir/build
+Building CXX object CMakeFiles/cmTC_95bd4.dir/cpu_avx512cnl.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_95bd4.dir/cpu_avx512cnl.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512cnl.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512cnl.cpp:10:2: error: "AVX512-CNL is not supported"
+#error "AVX512-CNL is not supported"
+ ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_95bd4.dir/cpu_avx512cnl.cpp.o] Error 1
+make: *** [cmTC_95bd4/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512clx.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ce8b4/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_ce8b4.dir/build.make CMakeFiles/cmTC_ce8b4.dir/build
+Building CXX object CMakeFiles/cmTC_ce8b4.dir/cpu_avx512clx.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_ce8b4.dir/cpu_avx512clx.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512clx.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512clx.cpp:9:2: error: "AVX512-CLX is not supported"
+#error "AVX512-CLX is not supported"
+ ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_ce8b4.dir/cpu_avx512clx.cpp.o] Error 1
+make: *** [cmTC_ce8b4/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512icl.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_95f9c/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_95f9c.dir/build.make CMakeFiles/cmTC_95f9c.dir/build
+Building CXX object CMakeFiles/cmTC_95f9c.dir/cpu_avx512icl.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -std=c++11 -o CMakeFiles/cmTC_95f9c.dir/cpu_avx512icl.cpp.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512icl.cpp
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/cmake/checks/cpu_avx512icl.cpp:12:2: error: "AVX512-ICL is not supported"
+#error "AVX512-ICL is not supported"
+ ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_95f9c.dir/cpu_avx512icl.cpp.o] Error 1
+make: *** [cmTC_95f9c/fast] Error 2
+
+===== END =====
+
+Determining if the include file malloc.h exists failed with the following output:
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1cc58/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_1cc58.dir/build.make CMakeFiles/cmTC_1cc58.dir/build
+Building C object CMakeFiles/cmTC_1cc58.dir/CheckIncludeFile.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -o CMakeFiles/cmTC_1cc58.dir/CheckIncludeFile.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'malloc.h' file not found
+#include <malloc.h>
+         ^~~~~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_1cc58.dir/CheckIncludeFile.c.o] Error 1
+make: *** [cmTC_1cc58/fast] Error 2
+
+
+Determining size of off64_t failed with the following output:
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_82395/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_82395.dir/build.make CMakeFiles/cmTC_82395.dir/build
+Building C object CMakeFiles/cmTC_82395.dir/OFF64_T.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -o CMakeFiles/cmTC_82395.dir/OFF64_T.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/OFF64_T.c
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/OFF64_T.c:25:12: error: use of undeclared identifier 'off64_t'
+  ('0' + ((SIZE / 10000)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/OFF64_T.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/OFF64_T.c:26:12: error: use of undeclared identifier 'off64_t'
+  ('0' + ((SIZE / 1000)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/OFF64_T.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/OFF64_T.c:27:12: error: use of undeclared identifier 'off64_t'
+  ('0' + ((SIZE / 100)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/OFF64_T.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/OFF64_T.c:28:12: error: use of undeclared identifier 'off64_t'
+  ('0' + ((SIZE / 10)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/OFF64_T.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/OFF64_T.c:29:12: error: use of undeclared identifier 'off64_t'
+  ('0' +  (SIZE    % 10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/OFF64_T.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+5 errors generated.
+make[1]: *** [CMakeFiles/cmTC_82395.dir/OFF64_T.c.o] Error 1
+make: *** [cmTC_82395/fast] Error 2
+
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/OFF64_T.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(off64_t))
+char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the include file io.h exists failed with the following output:
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6b124/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_6b124.dir/build.make CMakeFiles/cmTC_6b124.dir/build
+Building C object CMakeFiles/cmTC_6b124.dir/CheckIncludeFile.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -o CMakeFiles/cmTC_6b124.dir/CheckIncludeFile.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'io.h' file not found
+#include <io.h>
+         ^~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_6b124.dir/CheckIncludeFile.c.o] Error 1
+make: *** [cmTC_6b124/fast] Error 2
+
+
+Determining size of INT8 failed with the following output:
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cb5d2/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_cb5d2.dir/build.make CMakeFiles/cmTC_cb5d2.dir/build
+Building C object CMakeFiles/cmTC_cb5d2.dir/int8.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -o CMakeFiles/cmTC_cb5d2.dir/int8.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int8.c
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int8.c:25:12: error: use of undeclared identifier 'INT8'
+  ('0' + ((SIZE / 10000)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int8.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int8.c:26:12: error: use of undeclared identifier 'INT8'
+  ('0' + ((SIZE / 1000)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int8.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int8.c:27:12: error: use of undeclared identifier 'INT8'
+  ('0' + ((SIZE / 100)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int8.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int8.c:28:12: error: use of undeclared identifier 'INT8'
+  ('0' + ((SIZE / 10)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int8.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int8.c:29:12: error: use of undeclared identifier 'INT8'
+  ('0' +  (SIZE    % 10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int8.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+5 errors generated.
+make[1]: *** [CMakeFiles/cmTC_cb5d2.dir/int8.c.o] Error 1
+make: *** [cmTC_cb5d2/fast] Error 2
+
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int8.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(INT8))
+char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of INT16 failed with the following output:
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_db5c1/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_db5c1.dir/build.make CMakeFiles/cmTC_db5c1.dir/build
+Building C object CMakeFiles/cmTC_db5c1.dir/int16.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -o CMakeFiles/cmTC_db5c1.dir/int16.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int16.c
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int16.c:25:12: error: use of undeclared identifier 'INT16'
+  ('0' + ((SIZE / 10000)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int16.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int16.c:26:12: error: use of undeclared identifier 'INT16'
+  ('0' + ((SIZE / 1000)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int16.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int16.c:27:12: error: use of undeclared identifier 'INT16'
+  ('0' + ((SIZE / 100)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int16.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int16.c:28:12: error: use of undeclared identifier 'INT16'
+  ('0' + ((SIZE / 10)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int16.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int16.c:29:12: error: use of undeclared identifier 'INT16'
+  ('0' +  (SIZE    % 10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int16.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+5 errors generated.
+make[1]: *** [CMakeFiles/cmTC_db5c1.dir/int16.c.o] Error 1
+make: *** [cmTC_db5c1/fast] Error 2
+
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int16.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(INT16))
+char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of INT32 failed with the following output:
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d0e97/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_d0e97.dir/build.make CMakeFiles/cmTC_d0e97.dir/build
+Building C object CMakeFiles/cmTC_d0e97.dir/int32.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -o CMakeFiles/cmTC_d0e97.dir/int32.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int32.c
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int32.c:25:12: error: use of undeclared identifier 'INT32'
+  ('0' + ((SIZE / 10000)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int32.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int32.c:26:12: error: use of undeclared identifier 'INT32'
+  ('0' + ((SIZE / 1000)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int32.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int32.c:27:12: error: use of undeclared identifier 'INT32'
+  ('0' + ((SIZE / 100)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int32.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int32.c:28:12: error: use of undeclared identifier 'INT32'
+  ('0' + ((SIZE / 10)%10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int32.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int32.c:29:12: error: use of undeclared identifier 'INT32'
+  ('0' +  (SIZE    % 10)),
+           ^
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int32.c:23:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+5 errors generated.
+make[1]: *** [CMakeFiles/cmTC_d0e97.dir/int32.c.o] Error 1
+make: *** [cmTC_d0e97/fast] Error 2
+
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CheckTypeSize/int32.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(INT32))
+char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-unused-but-set-variable', did you mean '-Wno-unused-const-variable'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-unused-but-set-variable'
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f30cb/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_f30cb.dir/build.make CMakeFiles/cmTC_f30cb.dir/build
+Building C object CMakeFiles/cmTC_f30cb.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -Wno-unused-but-set-variable -o CMakeFiles/cmTC_f30cb.dir/src.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c
+warning: unknown warning option '-Wno-unused-but-set-variable'; did you mean '-Wno-unused-const-variable'? [-Wunknown-warning-option]
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+Linking C executable cmTC_f30cb
+/usr/local/Cellar/cmake/3.12.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f30cb.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -Wl,-dead_strip  CMakeFiles/cmTC_f30cb.dir/src.c.o  -o cmTC_f30cb 
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-maybe-uninitialized', did you mean '-Wno-uninitialized'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-maybe-uninitialized'
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fac16/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_fac16.dir/build.make CMakeFiles/cmTC_fac16.dir/build
+Building C object CMakeFiles/cmTC_fac16.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wstrict-prototypes -Winit-self -Wpointer-arith -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-missing-prototypes -Wno-missing-declarations -Wno-undef -Wno-unused -Wno-sign-compare -Wno-cast-align -Wno-shadow  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -Wno-maybe-uninitialized -o CMakeFiles/cmTC_fac16.dir/src.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c
+warning: unknown warning option '-Wno-maybe-uninitialized'; did you mean '-Wno-uninitialized'? [-Wunknown-warning-option]
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+Linking C executable cmTC_fac16
+/usr/local/Cellar/cmake/3.12.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fac16.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wstrict-prototypes -Winit-self -Wpointer-arith -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-missing-prototypes -Wno-missing-declarations -Wno-undef -Wno-unused -Wno-sign-compare -Wno-cast-align -Wno-shadow  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -Wl,-dead_strip  CMakeFiles/cmTC_fac16.dir/src.c.o  -o cmTC_fac16 
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-misleading-indentation', did you mean '-Wno-binding-in-condition'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-misleading-indentation'
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f7f85/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_f7f85.dir/build.make CMakeFiles/cmTC_f7f85.dir/build
+Building C object CMakeFiles/cmTC_f7f85.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wstrict-prototypes -Winit-self -Wpointer-arith -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-missing-prototypes -Wno-missing-declarations -Wno-undef -Wno-unused -Wno-sign-compare -Wno-cast-align -Wno-shadow -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -Wno-misleading-indentation -o CMakeFiles/cmTC_f7f85.dir/src.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c
+warning: unknown warning option '-Wno-misleading-indentation'; did you mean '-Wno-binding-in-condition'? [-Wunknown-warning-option]
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+Linking C executable cmTC_f7f85
+/usr/local/Cellar/cmake/3.12.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f7f85.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wstrict-prototypes -Winit-self -Wpointer-arith -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-missing-prototypes -Wno-missing-declarations -Wno-undef -Wno-unused -Wno-sign-compare -Wno-cast-align -Wno-shadow -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -Wl,-dead_strip  CMakeFiles/cmTC_f7f85.dir/src.c.o  -o cmTC_f7f85 
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-unused-but-set-parameter', did you mean '-Wno-unused-parameter'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-unused-but-set-parameter'
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_51056/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_51056.dir/build.make CMakeFiles/cmTC_51056.dir/build
+Building C object CMakeFiles/cmTC_51056.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-implicit-function-declaration -Wno-uninitialized -Wno-missing-prototypes  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -Wno-unused-but-set-parameter -o CMakeFiles/cmTC_51056.dir/src.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c
+warning: unknown warning option '-Wno-unused-but-set-parameter'; did you mean '-Wno-unused-parameter'? [-Wunknown-warning-option]
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+Linking C executable cmTC_51056
+/usr/local/Cellar/cmake/3.12.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_51056.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-implicit-function-declaration -Wno-uninitialized -Wno-missing-prototypes  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -Wl,-dead_strip  CMakeFiles/cmTC_51056.dir/src.c.o  -o cmTC_51056 
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-pointer-compare' [-Wunknown-warning-option]'
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-pointer-compare'
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b1c00/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_b1c00.dir/build.make CMakeFiles/cmTC_b1c00.dir/build
+Building C object CMakeFiles/cmTC_b1c00.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-implicit-function-declaration -Wno-uninitialized -Wno-missing-prototypes -Wno-missing-declarations -Wno-unused -Wno-shadow -Wno-sign-compare -Wno-strict-overflow  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -Wno-pointer-compare -o CMakeFiles/cmTC_b1c00.dir/src.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c
+warning: unknown warning option '-Wno-pointer-compare' [-Wunknown-warning-option]
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+Linking C executable cmTC_b1c00
+/usr/local/Cellar/cmake/3.12.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b1c00.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-implicit-function-declaration -Wno-uninitialized -Wno-missing-prototypes -Wno-missing-declarations -Wno-unused -Wno-shadow -Wno-sign-compare -Wno-strict-overflow  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -Wl,-dead_strip  CMakeFiles/cmTC_b1c00.dir/src.c.o  -o cmTC_b1c00 
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-misleading-indentation', did you mean '-Wno-binding-in-condition'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -Wno-misleading-indentation'
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4fd4e/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_4fd4e.dir/build.make CMakeFiles/cmTC_4fd4e.dir/build
+Building CXX object CMakeFiles/cmTC_4fd4e.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-prototypes -Wstrict-prototypes -Winit-self -Wpointer-arith -Wsign-promo -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-shadow -Wno-unused -Wno-sign-compare -Wno-undef -Wno-missing-declarations -Wno-uninitialized -Wno-switch -Wno-parentheses -Wno-array-bounds -Wno-extra -Wno-deprecated-declarations  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -Wno-misleading-indentation -std=c++11 -o CMakeFiles/cmTC_4fd4e.dir/src.cxx.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.cxx
+warning: unknown warning option '-Wno-misleading-indentation'; did you mean '-Wno-binding-in-condition'? [-Wunknown-warning-option]
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.cxx:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+Linking CXX executable cmTC_4fd4e
+/usr/local/Cellar/cmake/3.12.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4fd4e.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-prototypes -Wstrict-prototypes -Winit-self -Wpointer-arith -Wsign-promo -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-shadow -Wno-unused -Wno-sign-compare -Wno-undef -Wno-missing-declarations -Wno-uninitialized -Wno-switch -Wno-parentheses -Wno-array-bounds -Wno-extra -Wno-deprecated-declarations  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -Wl,-dead_strip  CMakeFiles/cmTC_4fd4e.dir/src.cxx.o  -o cmTC_4fd4e 
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-suggest-override', did you mean '-Wno-shift-overflow'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: '/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -Wno-suggest-override'
+===== BUILD LOG =====
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e7950/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_e7950.dir/build.make CMakeFiles/cmTC_e7950.dir/build
+Building CXX object CMakeFiles/cmTC_e7950.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-prototypes -Wstrict-prototypes -Winit-self -Wpointer-arith -Wsign-promo -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-shadow -Wno-unused -Wno-sign-compare -Wno-undef -Wno-missing-declarations -Wno-uninitialized -Wno-switch -Wno-parentheses -Wno-array-bounds -Wno-extra -Wno-deprecated-declarations -Wno-deprecated  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE   -Wno-suggest-override -std=c++11 -o CMakeFiles/cmTC_e7950.dir/src.cxx.o -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.cxx
+warning: unknown warning option '-Wno-suggest-override'; did you mean '-Wno-shift-overflow'? [-Wunknown-warning-option]
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/CMakeFiles/CMakeTmp/src.cxx:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+Linking CXX executable cmTC_e7950
+/usr/local/Cellar/cmake/3.12.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e7950.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-prototypes -Wstrict-prototypes -Winit-self -Wpointer-arith -Wsign-promo -Winit-self -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Wno-long-long -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-shadow -Wno-unused -Wno-sign-compare -Wno-undef -Wno-missing-declarations -Wno-uninitialized -Wno-switch -Wno-parentheses -Wno-array-bounds -Wno-extra -Wno-deprecated-declarations -Wno-deprecated  -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -Wl,-dead_strip  CMakeFiles/cmTC_e7950.dir/src.cxx.o  -o cmTC_e7950 
+
+===== END =====
+

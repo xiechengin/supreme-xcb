@@ -1,0 +1,1 @@
+curl --create-dirs --output "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/ippicv/c0bd78adb4156bbf552c1dfe90599607-ippicv_2019_lnx_intel64_general_20180723.tgz" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/32e315a5b106a7b89dbed51c28f8120a48b368b4/ippicv/ippicv_2019_lnx_intel64_general_20180723.tgz"

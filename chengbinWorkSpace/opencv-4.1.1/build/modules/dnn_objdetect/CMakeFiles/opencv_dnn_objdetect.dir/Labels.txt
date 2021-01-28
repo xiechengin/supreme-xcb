@@ -1,0 +1,19 @@
+# Target labels
+ Extra
+ opencv_dnn_objdetect
+ Module
+# Source files and their labels
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/dnn_objdetect/include/opencv2/core_detect.hpp
+ Extra
+ opencv_dnn_objdetect
+ Module
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/dnn_objdetect/src/core_detect.cpp
+ Extra
+ opencv_dnn_objdetect
+ Module
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/dnn_objdetect/src/precomp.hpp
+ Extra
+ opencv_dnn_objdetect
+ Module
+/home/xcb/shuikeWorkSpace/opencv-4.1.1/build/cvconfig.h
+/home/xcb/shuikeWorkSpace/opencv-4.1.1/build/opencv2/opencv_modules.hpp

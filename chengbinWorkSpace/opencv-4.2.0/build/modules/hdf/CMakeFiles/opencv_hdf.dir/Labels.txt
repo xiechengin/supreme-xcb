@@ -1,0 +1,23 @@
+# Target labels
+ Extra
+ opencv_hdf
+ Module
+# Source files and their labels
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/hdf/include/opencv2/hdf.hpp
+ Extra
+ opencv_hdf
+ Module
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/hdf/include/opencv2/hdf/hdf5.hpp
+ Extra
+ opencv_hdf
+ Module
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/hdf/src/hdf5.cpp
+ Extra
+ opencv_hdf
+ Module
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/hdf/src/precomp.hpp
+ Extra
+ opencv_hdf
+ Module
+/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/cvconfig.h
+/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/opencv2/opencv_modules.hpp

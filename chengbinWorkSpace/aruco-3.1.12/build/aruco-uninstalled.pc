@@ -1,0 +1,10 @@
+
+libdir=/media/psf/Home/Desktop/work/ParallesWorkSpace/shuike/aruco-3.1.12/build
+includedir=/media/psf/Home/Desktop/work/ParallesWorkSpace/shuike/aruco-3.1.12/src
+
+Name: aruco
+Description: ArUco: a minimal library for Augmented Reality applications based on OpenCv, uninstalled Version.
+Version: 3.1.12
+Requires: opencv >= 2.1.0
+Libs: -L${libdir} -laruco
+Cflags: -I${includedir}

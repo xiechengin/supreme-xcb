@@ -1,0 +1,42 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/reg/perf/perf_main.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_reg",
+				"PerfTest"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/reg/perf/perf_reg.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_reg",
+				"PerfTest"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/reg/perf/perf_precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_reg",
+				"PerfTest"
+			]
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_reg",
+			"PerfTest"
+		],
+		"name" : "opencv_perf_reg"
+	}
+}

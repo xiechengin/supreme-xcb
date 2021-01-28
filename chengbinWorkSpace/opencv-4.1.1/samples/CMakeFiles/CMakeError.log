@@ -1,0 +1,87 @@
+Determining if the CL_VERSION_2_2 exist failed with the following output:
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.1.1/samples/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8d8c8/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_8d8c8.dir/build.make CMakeFiles/cmTC_8d8c8.dir/build
+Building C object CMakeFiles/cmTC_8d8c8.dir/CheckSymbolExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -o CMakeFiles/cmTC_8d8c8.dir/CheckSymbolExists.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.1.1/samples/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.1.1/samples/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'CL_VERSION_2_2'
+  return ((int*)(&CL_VERSION_2_2))[argc];
+                  ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_8d8c8.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTC_8d8c8/fast] Error 2
+
+File /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.1.1/samples/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include </System/Library/Frameworks/OpenCL.framework/Headers/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_2_2
+  return ((int*)(&CL_VERSION_2_2))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the CL_VERSION_2_1 exist failed with the following output:
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.1.1/samples/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_03785/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_03785.dir/build.make CMakeFiles/cmTC_03785.dir/build
+Building C object CMakeFiles/cmTC_03785.dir/CheckSymbolExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -o CMakeFiles/cmTC_03785.dir/CheckSymbolExists.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.1.1/samples/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.1.1/samples/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'CL_VERSION_2_1'
+  return ((int*)(&CL_VERSION_2_1))[argc];
+                  ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_03785.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTC_03785/fast] Error 2
+
+File /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.1.1/samples/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include </System/Library/Frameworks/OpenCL.framework/Headers/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_2_1
+  return ((int*)(&CL_VERSION_2_1))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the CL_VERSION_2_0 exist failed with the following output:
+Change Dir: /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.1.1/samples/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_25a95/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_25a95.dir/build.make CMakeFiles/cmTC_25a95.dir/build
+Building C object CMakeFiles/cmTC_25a95.dir/CheckSymbolExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -o CMakeFiles/cmTC_25a95.dir/CheckSymbolExists.c.o   -c /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.1.1/samples/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.1.1/samples/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'CL_VERSION_2_0'
+  return ((int*)(&CL_VERSION_2_0))[argc];
+                  ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_25a95.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTC_25a95/fast] Error 2
+
+File /Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.1.1/samples/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include </System/Library/Frameworks/OpenCL.framework/Headers/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_2_0
+  return ((int*)(&CL_VERSION_2_0))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

@@ -1,0 +1,102 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/fuzzy/include/opencv2/fuzzy.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_fuzzy",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/fuzzy/include/opencv2/fuzzy/fuzzy_F0_math.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_fuzzy",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/fuzzy/include/opencv2/fuzzy/fuzzy_F1_math.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_fuzzy",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/fuzzy/include/opencv2/fuzzy/fuzzy_image.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_fuzzy",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/fuzzy/include/opencv2/fuzzy/types.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_fuzzy",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/fuzzy/src/fuzzy_F0_math.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_fuzzy",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/fuzzy/src/fuzzy_F1_math.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_fuzzy",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/fuzzy/src/fuzzy_image.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_fuzzy",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/fuzzy/src/precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_fuzzy",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv-4.1.1/build/cvconfig.h"
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv-4.1.1/build/opencv2/opencv_modules.hpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_fuzzy",
+			"Module"
+		],
+		"name" : "opencv_fuzzy"
+	}
+}

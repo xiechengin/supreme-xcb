@@ -1,0 +1,3 @@
+curl --output "/home/xcb/shuikeWorkSpace/opencv-4.1.1/.cache/ippicv/c0bd78adb4156bbf552c1dfe90599607-ippicv_2019_lnx_intel64_general_20180723.tgz" "file:~/Downloads/ippicv_2019_lnx_intel64_general_20180723.tgz"
+curl --output "/home/xcb/shuikeWorkSpace/opencv-4.1.1/.cache/xfeatures2d/boostdesc/324426a24fa56ad9c5b8e3e0b3e5303e-boostdesc_bgm_hd.i" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_bgm_hd.i"
+curl --output "/home/xcb/shuikeWorkSpace/opencv-4.1.1/.cache/xfeatures2d/boostdesc/202e1b3e9fec871b04da31f7f016679f-boostdesc_binboost_064.i" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_binboost_064.i"

@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/xcb/shuikeWorkSpace/aruco_demo/build",
+  "command": "/usr/bin/c++   -I/home/xcb/shuikeWorkSpace/aruco_demo/include -isystem /usr/local/include/opencv4 -isystem /opt/ros/melodic/include   -std=c++11 -pthread -std=c++11   -o CMakeFiles/example.dir/src/main.cpp.o -c /home/xcb/shuikeWorkSpace/aruco_demo/src/main.cpp",
+  "file": "/home/xcb/shuikeWorkSpace/aruco_demo/src/main.cpp"
+},
+{
+  "directory": "/home/xcb/shuikeWorkSpace/aruco_demo/build",
+  "command": "/usr/bin/c++   -I/home/xcb/shuikeWorkSpace/aruco_demo/include -isystem /usr/local/include/opencv4 -isystem /opt/ros/melodic/include   -std=c++11 -pthread -std=c++11   -o CMakeFiles/example.dir/src/SingleArucoDetection_class.cpp.o -c /home/xcb/shuikeWorkSpace/aruco_demo/src/SingleArucoDetection_class.cpp",
+  "file": "/home/xcb/shuikeWorkSpace/aruco_demo/src/SingleArucoDetection_class.cpp"
+}
+]

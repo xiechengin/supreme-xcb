@@ -1,0 +1,3 @@
+/Users/shuike/Desktop/work/svn/droneLanding/src/CMakeFiles/rebuild_cache.dir
+/Users/shuike/Desktop/work/svn/droneLanding/src/CMakeFiles/edit_cache.dir
+/Users/shuike/Desktop/work/svn/droneLanding/src/CMakeFiles/test.dir

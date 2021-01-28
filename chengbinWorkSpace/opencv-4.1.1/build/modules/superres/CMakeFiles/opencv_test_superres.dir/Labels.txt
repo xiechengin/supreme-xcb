@@ -1,0 +1,17 @@
+# Target labels
+ Extra
+ opencv_superres
+ AccuracyTest
+# Source files and their labels
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/superres/test/test_main.cpp
+ Extra
+ opencv_superres
+ AccuracyTest
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/superres/test/test_superres.cpp
+ Extra
+ opencv_superres
+ AccuracyTest
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/superres/test/test_precomp.hpp
+ Extra
+ opencv_superres
+ AccuracyTest

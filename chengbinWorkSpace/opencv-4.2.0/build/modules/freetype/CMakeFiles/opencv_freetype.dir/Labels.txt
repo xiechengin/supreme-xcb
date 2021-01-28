@@ -1,0 +1,19 @@
+# Target labels
+ Extra
+ opencv_freetype
+ Module
+# Source files and their labels
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/freetype/include/opencv2/freetype.hpp
+ Extra
+ opencv_freetype
+ Module
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/freetype/src/freetype.cpp
+ Extra
+ opencv_freetype
+ Module
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/freetype/src/precomp.hpp
+ Extra
+ opencv_freetype
+ Module
+/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/cvconfig.h
+/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/opencv2/opencv_modules.hpp

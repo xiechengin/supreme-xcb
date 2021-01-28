@@ -1,0 +1,71 @@
+#use_cache "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache"
+#do_unpack "ippicv_2019_lnx_intel64_general_20180723.tgz" "c0bd78adb4156bbf552c1dfe90599607" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/32e315a5b106a7b89dbed51c28f8120a48b368b4/ippicv/ippicv_2019_lnx_intel64_general_20180723.tgz" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/3rdparty/ippicv"
+#cmake_download "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/ippicv/c0bd78adb4156bbf552c1dfe90599607-ippicv_2019_lnx_intel64_general_20180723.tgz" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/32e315a5b106a7b89dbed51c28f8120a48b368b4/ippicv/ippicv_2019_lnx_intel64_general_20180723.tgz"
+#try 1
+#   Trying 151.101.76.133...
+# TCP_NODELAY set
+# Connected to raw.githubusercontent.com (151.101.76.133) port 443 (#0)
+# ALPN, offering http/1.1
+# successfully set certificate verify locations:
+#   CAfile: /etc/ssl/certs/ca-certificates.crt
+#   CApath: /etc/ssl/certs
+# [5 bytes data]
+# TLSv1.3 (OUT), TLS handshake, Client hello (1):
+# [512 bytes data]
+# OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to raw.githubusercontent.com:443 
+# stopped the pause stream!
+# Closing connection 0
+# 
+
+#do_unpack "v0.1.1f.zip" "b624b995ec9c439cbc2e9e6ee940d3a2" "https://github.com/opencv/ade/archive/v0.1.1f.zip" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/3rdparty/ade"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/ade/b624b995ec9c439cbc2e9e6ee940d3a2-v0.1.1f.zip"
+#mkdir "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/3rdparty/ade"
+#unpack "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/3rdparty/ade" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/ade/b624b995ec9c439cbc2e9e6ee940d3a2-v0.1.1f.zip"
+#do_copy "boostdesc_bgm.i" "0ea90e7a8f3f7876d450e4149c97c74f" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_bgm.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d"
+#missing "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_bgm.i"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/0ea90e7a8f3f7876d450e4149c97c74f-boostdesc_bgm.i"
+#copy "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_bgm.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/0ea90e7a8f3f7876d450e4149c97c74f-boostdesc_bgm.i"
+#do_copy "boostdesc_bgm_bi.i" "232c966b13651bd0e46a1497b0852191" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_bgm_bi.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d"
+#missing "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_bgm_bi.i"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/232c966b13651bd0e46a1497b0852191-boostdesc_bgm_bi.i"
+#copy "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_bgm_bi.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/232c966b13651bd0e46a1497b0852191-boostdesc_bgm_bi.i"
+#do_copy "boostdesc_bgm_hd.i" "324426a24fa56ad9c5b8e3e0b3e5303e" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_bgm_hd.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d"
+#missing "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_bgm_hd.i"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/324426a24fa56ad9c5b8e3e0b3e5303e-boostdesc_bgm_hd.i"
+#copy "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_bgm_hd.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/324426a24fa56ad9c5b8e3e0b3e5303e-boostdesc_bgm_hd.i"
+#do_copy "boostdesc_binboost_064.i" "202e1b3e9fec871b04da31f7f016679f" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_binboost_064.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d"
+#missing "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_binboost_064.i"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/202e1b3e9fec871b04da31f7f016679f-boostdesc_binboost_064.i"
+#copy "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_binboost_064.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/202e1b3e9fec871b04da31f7f016679f-boostdesc_binboost_064.i"
+#do_copy "boostdesc_binboost_128.i" "98ea99d399965c03d555cef3ea502a0b" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_binboost_128.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d"
+#missing "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_binboost_128.i"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/98ea99d399965c03d555cef3ea502a0b-boostdesc_binboost_128.i"
+#copy "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_binboost_128.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/98ea99d399965c03d555cef3ea502a0b-boostdesc_binboost_128.i"
+#do_copy "boostdesc_binboost_256.i" "e6dcfa9f647779eb1ce446a8d759b6ea" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_binboost_256.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d"
+#missing "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_binboost_256.i"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/e6dcfa9f647779eb1ce446a8d759b6ea-boostdesc_binboost_256.i"
+#copy "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_binboost_256.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/e6dcfa9f647779eb1ce446a8d759b6ea-boostdesc_binboost_256.i"
+#do_copy "boostdesc_lbgm.i" "0ae0675534aa318d9668f2a179c2a052" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_lbgm.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d"
+#missing "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_lbgm.i"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/0ae0675534aa318d9668f2a179c2a052-boostdesc_lbgm.i"
+#copy "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/boostdesc_lbgm.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/boostdesc/0ae0675534aa318d9668f2a179c2a052-boostdesc_lbgm.i"
+#do_copy "vgg_generated_48.i" "e8d0dcd54d1bcfdc29203d011a797179" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/fccf7cd6a4b12079f73bbfb21745f9babcd4eb1d/vgg_generated_48.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d"
+#missing "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/vgg_generated_48.i"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/vgg/e8d0dcd54d1bcfdc29203d011a797179-vgg_generated_48.i"
+#copy "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/vgg_generated_48.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/vgg/e8d0dcd54d1bcfdc29203d011a797179-vgg_generated_48.i"
+#do_copy "vgg_generated_64.i" "7126a5d9a8884ebca5aea5d63d677225" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/fccf7cd6a4b12079f73bbfb21745f9babcd4eb1d/vgg_generated_64.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d"
+#missing "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/vgg_generated_64.i"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/vgg/7126a5d9a8884ebca5aea5d63d677225-vgg_generated_64.i"
+#copy "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/vgg_generated_64.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/vgg/7126a5d9a8884ebca5aea5d63d677225-vgg_generated_64.i"
+#do_copy "vgg_generated_80.i" "7cd47228edec52b6d82f46511af325c5" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/fccf7cd6a4b12079f73bbfb21745f9babcd4eb1d/vgg_generated_80.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d"
+#missing "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/vgg_generated_80.i"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/vgg/7cd47228edec52b6d82f46511af325c5-vgg_generated_80.i"
+#copy "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/vgg_generated_80.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/vgg/7cd47228edec52b6d82f46511af325c5-vgg_generated_80.i"
+#do_copy "vgg_generated_120.i" "151805e03568c9f490a5e3a872777b75" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/fccf7cd6a4b12079f73bbfb21745f9babcd4eb1d/vgg_generated_120.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d"
+#missing "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/vgg_generated_120.i"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/vgg/151805e03568c9f490a5e3a872777b75-vgg_generated_120.i"
+#copy "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/downloads/xfeatures2d/vgg_generated_120.i" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/xfeatures2d/vgg/151805e03568c9f490a5e3a872777b75-vgg_generated_120.i"
+#do_copy "face_landmark_model.dat" "7505c44ca4eb54b4ab1e4777cb96ac05" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/8afa57abc8229d611c4937165d20e2a2d9fc5a12/face_landmark_model.dat" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/share/opencv4/testdata/cv/face/"
+#missing "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/share/opencv4/testdata/cv/face//face_landmark_model.dat"
+#check_md5 "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat"
+#copy "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/share/opencv4/testdata/cv/face//face_landmark_model.dat" "/home/xcb/shuikeWorkSpace/opencv-4.2.0/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat"

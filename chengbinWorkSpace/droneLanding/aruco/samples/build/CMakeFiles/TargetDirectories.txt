@@ -1,0 +1,3 @@
+/Users/shuike/Desktop/work/svn/droneLanding/aruco/samples/build/CMakeFiles/rebuild_cache.dir
+/Users/shuike/Desktop/work/svn/droneLanding/aruco/samples/build/CMakeFiles/edit_cache.dir
+/Users/shuike/Desktop/work/svn/droneLanding/aruco/samples/build/CMakeFiles/test.dir

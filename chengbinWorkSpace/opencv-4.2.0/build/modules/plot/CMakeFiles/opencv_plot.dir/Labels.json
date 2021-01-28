@@ -1,0 +1,48 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/plot/include/opencv2/plot.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_plot",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/plot/src/plot.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_plot",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/plot/src/precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_plot",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/cvconfig.h"
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv-4.2.0/build/opencv2/opencv_modules.hpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_plot",
+			"Module"
+		],
+		"name" : "opencv_plot"
+	}
+}

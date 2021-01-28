@@ -1,0 +1,51 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/stereo/perf/perf_bm.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_stereo",
+				"PerfTest"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/stereo/perf/perf_descriptor.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_stereo",
+				"PerfTest"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/stereo/perf/perf_main.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_stereo",
+				"PerfTest"
+			]
+		},
+		{
+			"file" : "/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/stereo/perf/perf_precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_stereo",
+				"PerfTest"
+			]
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_stereo",
+			"PerfTest"
+		],
+		"name" : "opencv_perf_stereo"
+	}
+}

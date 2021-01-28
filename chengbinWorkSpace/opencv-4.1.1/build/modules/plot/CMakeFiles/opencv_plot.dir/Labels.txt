@@ -1,0 +1,19 @@
+# Target labels
+ Extra
+ opencv_plot
+ Module
+# Source files and their labels
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/plot/include/opencv2/plot.hpp
+ Extra
+ opencv_plot
+ Module
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/plot/src/plot.cpp
+ Extra
+ opencv_plot
+ Module
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/plot/src/precomp.hpp
+ Extra
+ opencv_plot
+ Module
+/home/xcb/shuikeWorkSpace/opencv-4.1.1/build/cvconfig.h
+/home/xcb/shuikeWorkSpace/opencv-4.1.1/build/opencv2/opencv_modules.hpp

@@ -1,0 +1,31 @@
+https://blog.csdn.net/qq_29159273/article/details/100045675
+
+
+
+
+cmake -DCMAKE_BUILD_TYPE=Release \
+-DCMAKE_INSTALL_PREFIX=/usr/local \
+-DOPENCV_GENERATE_PKGCONFIG=ON \
+-DOPENCV_EXTRA_MODULES_PATH=/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1\
+-DBUILD_DOCS=ON \
+-DBUILD_EXAMPLES=ON \
+-DINSTALL_C_EXAMPLES=ON \
+-DWITH_QT=ON \
+-DWITH_GSTREAMER=ON \
+-DVIDEOIO_PLUGIN_LIST=gstreamer \
+-DOPENCV_ENABLE_NONFREE=ON \
+-DBUILD_opencv_python2=OFF \
+-DBUILD_opencv_python3=OFF \
+-DWITH_LAPACK=ON \
+-DWITH_EIGEN=ON \
+-DWITH_OPENGL=ON \
+-DWITH_CUDA=OFF \
+-WITH_CUFFT=OFF \
+-DWITH_CUBLAS=OFF \
+-DWITH_CUDNN=OFF \
+-WITH_NVCUVID=OFF .. 
+
+
+生成网络  对抗网络  GAN
+
+强化学习 判断对错  多次判断对（往好的方向走）

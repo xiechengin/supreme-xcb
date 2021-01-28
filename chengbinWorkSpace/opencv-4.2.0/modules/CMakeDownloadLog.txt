@@ -1,0 +1,85 @@
+#use_cache "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/.cache"
+#do_unpack "ippicv_2019_mac_intel64_general_20180723.tgz" "fe6b2bb75ae0e3f19ad3ae1a31dfa4a2" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/32e315a5b106a7b89dbed51c28f8120a48b368b4/ippicv/ippicv_2019_mac_intel64_general_20180723.tgz" "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/3rdparty/ippicv"
+#check_md5 "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/.cache/ippicv/fe6b2bb75ae0e3f19ad3ae1a31dfa4a2-ippicv_2019_mac_intel64_general_20180723.tgz"
+#mismatch_md5 "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/.cache/ippicv/fe6b2bb75ae0e3f19ad3ae1a31dfa4a2-ippicv_2019_mac_intel64_general_20180723.tgz" "d41d8cd98f00b204e9800998ecf8427e"
+#delete "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/.cache/ippicv/fe6b2bb75ae0e3f19ad3ae1a31dfa4a2-ippicv_2019_mac_intel64_general_20180723.tgz"
+#cmake_download "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/.cache/ippicv/fe6b2bb75ae0e3f19ad3ae1a31dfa4a2-ippicv_2019_mac_intel64_general_20180723.tgz" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/32e315a5b106a7b89dbed51c28f8120a48b368b4/ippicv/ippicv_2019_mac_intel64_general_20180723.tgz"
+#try 1
+#   Trying 151.101.0.133...
+# TCP_NODELAY set
+# Connection failed
+# connect to 151.101.0.133 port 443 failed: Connection refused
+#   Trying 151.101.64.133...
+# TCP_NODELAY set
+# Connected to raw.githubusercontent.com (151.101.64.133) port 443 (#0)
+# ALPN, offering h2
+# ALPN, offering http/1.1
+# successfully set certificate verify locations:
+#   CAfile: /etc/ssl/cert.pem
+#   CApath: none
+# TLSv1.2 (OUT), TLS handshake, Client hello (1):
+# [239 bytes data]
+# LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to raw.githubusercontent.com:443 
+# Closing connection 0
+# 
+
+#do_unpack "v0.1.1f.zip" "b624b995ec9c439cbc2e9e6ee940d3a2" "https://github.com/opencv/ade/archive/v0.1.1f.zip" "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/3rdparty/ade"
+#check_md5 "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/.cache/ade/b624b995ec9c439cbc2e9e6ee940d3a2-v0.1.1f.zip"
+#mismatch_md5 "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/.cache/ade/b624b995ec9c439cbc2e9e6ee940d3a2-v0.1.1f.zip" "d41d8cd98f00b204e9800998ecf8427e"
+#delete "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/.cache/ade/b624b995ec9c439cbc2e9e6ee940d3a2-v0.1.1f.zip"
+#cmake_download "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/.cache/ade/b624b995ec9c439cbc2e9e6ee940d3a2-v0.1.1f.zip" "https://github.com/opencv/ade/archive/v0.1.1f.zip"
+#try 1
+#   Trying 192.30.253.112...
+# TCP_NODELAY set
+# Connected to github.com (192.30.253.112) port 443 (#0)
+# ALPN, offering h2
+# ALPN, offering http/1.1
+# successfully set certificate verify locations:
+#   CAfile: /etc/ssl/cert.pem
+#   CApath: none
+# TLSv1.2 (OUT), TLS handshake, Client hello (1):
+# [224 bytes data]
+# TLSv1.2 (IN), TLS handshake, Server hello (2):
+# [108 bytes data]
+# TLSv1.2 (IN), TLS handshake, Certificate (11):
+# [3085 bytes data]
+# TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+# [300 bytes data]
+# TLSv1.2 (IN), TLS handshake, Server finished (14):
+# [4 bytes data]
+# TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+# [37 bytes data]
+# TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+# [1 bytes data]
+# TLSv1.2 (OUT), TLS handshake, Finished (20):
+# [16 bytes data]
+# LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 
+# Closing connection 0
+# 
+
+#do_copy "boostdesc_bgm.i" "0ea90e7a8f3f7876d450e4149c97c74f" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_bgm.i" "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/downloads/xfeatures2d"
+#missing "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/downloads/xfeatures2d/boostdesc_bgm.i"
+#cmake_download "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/.cache/xfeatures2d/boostdesc/0ea90e7a8f3f7876d450e4149c97c74f-boostdesc_bgm.i" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_bgm.i"
+#try 1
+#   Trying 151.101.0.133...
+# TCP_NODELAY set
+# Connection failed
+# connect to 151.101.0.133 port 443 failed: Connection refused
+#   Trying 151.101.128.133...
+# TCP_NODELAY set
+# Connected to raw.githubusercontent.com (151.101.128.133) port 443 (#0)
+# ALPN, offering h2
+# ALPN, offering http/1.1
+# successfully set certificate verify locations:
+#   CAfile: /etc/ssl/cert.pem
+#   CApath: none
+# TLSv1.2 (OUT), TLS handshake, Client hello (1):
+# [239 bytes data]
+# LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to raw.githubusercontent.com:443 
+# Closing connection 0
+# 
+
+#do_copy "boostdesc_bgm_bi.i" "232c966b13651bd0e46a1497b0852191" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_bgm_bi.i" "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/downloads/xfeatures2d"
+#missing "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/modules/downloads/xfeatures2d/boostdesc_bgm_bi.i"
+#cmake_download "/Users/shuike/shuikeworkspace/packages/OpenCVInstall/opencv-4.2.0/.cache/xfeatures2d/boostdesc/232c966b13651bd0e46a1497b0852191-boostdesc_bgm_bi.i" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_bgm_bi.i"
+#try 1

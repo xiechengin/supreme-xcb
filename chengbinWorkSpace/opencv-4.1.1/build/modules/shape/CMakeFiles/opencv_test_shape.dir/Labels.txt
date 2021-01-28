@@ -1,0 +1,17 @@
+# Target labels
+ Extra
+ opencv_shape
+ AccuracyTest
+# Source files and their labels
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/shape/test/test_main.cpp
+ Extra
+ opencv_shape
+ AccuracyTest
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/shape/test/test_shape.cpp
+ Extra
+ opencv_shape
+ AccuracyTest
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.1.1/modules/shape/test/test_precomp.hpp
+ Extra
+ opencv_shape
+ AccuracyTest

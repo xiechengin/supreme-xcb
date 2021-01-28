@@ -1,0 +1,17 @@
+# Target labels
+ Extra
+ opencv_hdf
+ AccuracyTest
+# Source files and their labels
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/hdf/test/test_hdf5.cpp
+ Extra
+ opencv_hdf
+ AccuracyTest
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/hdf/test/test_main.cpp
+ Extra
+ opencv_hdf
+ AccuracyTest
+/home/xcb/shuikeWorkSpace/opencv_contrib-4.2.0/modules/hdf/test/test_precomp.hpp
+ Extra
+ opencv_hdf
+ AccuracyTest
