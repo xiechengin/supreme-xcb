@@ -5,8 +5,8 @@ rostopic echo
 rostopic info
 rostopic pub /topic type args
 catkin_create_pkg package_name depend1 depend2 depend3
-
-
+rosmsg list
+rosmsg echo
 
 
 #启动底盘
@@ -27,3 +27,12 @@ roslaunch waypoint_follower run.launch
 roslaunch js_turtle js_turtle.launch
 
 catkin_ws/src/hxzh_localization/launch
+
+
+~/qr_cv_ws/opencv$ vim /etc/pr
+presage.xml        profile            protocols          
+printcap           profile.d/         proxychains4.conf  
+ 
+nav@nav:~/qr_cv_ws/opencv$ sudo vim /etc/proxychains4.conf #最后一行写网址和端口
+nav@nav:~/qr_cv_ws/opencv$ proxychains4 sudo apt-get install librealsense2-dkms -y
+
