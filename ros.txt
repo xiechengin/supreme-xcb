@@ -36,3 +36,33 @@ printcap           profile.d/         proxychains4.conf
 nav@nav:~/qr_cv_ws/opencv$ sudo vim /etc/proxychains4.conf #最后一行写网址和端口
 nav@nav:~/qr_cv_ws/opencv$ proxychains4 sudo apt-get install librealsense2-dkms -y
 
+
+
+cb@xcb-ThinkPad-T14-Gen-1:~/xcb$ cd supreme-xcb/
+xcb@xcb-ThinkPad-T14-Gen-1:~/xcb/supreme-xcb$ git add .
+xcb@xcb-ThinkPad-T14-Gen-1:~/xcb/supreme-xcb$ git commit -m "ros_waypoint"
+[main c5275e34] ros_waypoint
+ 2 files changed, 90 insertions(+), 2 deletions(-)
+ create mode 100644 1.py
+xcb@xcb-ThinkPad-T14-Gen-1:~/xcb/supreme-xcb$ git push -u origin 
+FETCH_HEAD    main          origin/HEAD   
+HEAD          ORIG_HEAD     origin/main   
+xcb@xcb-ThinkPad-T14-Gen-1:~/xcb/supreme-xcb$ git push -u origin main 
+Username for 'https://github.com': xiechengin 
+Password for 'https://xiechengin@github.com': 
+
+
+
+xcb@xcb-ThinkPad-T14-Gen-1:~/catkin_ws/src/teleop_twist_keyboard$ ll *
+-rw------- 1 xcb xcb 1389 Nov 21 14:13 CHANGELOG.rst
+-rw------- 1 xcb xcb  347 Nov 21 14:13 CMakeLists.txt
+-rw------- 1 xcb xcb  505 Nov 21 14:13 package.xml
+-rw------- 1 xcb xcb  878 Nov 21 14:13 README.md
+-rw------- 1 xcb xcb 3225 Dec 29 19:45 teleop_twist_keyboard.py
+xcb@xcb-ThinkPad-T14-Gen-1:~/catkin_ws/src/teleop_twist_keyboard$ sudo chmod +x teleop_twist_keyboard.py 
+[sudo] password for xcb: 
+xcb@xcb-ThinkPad-T14-Gen-1:~/catkin_ws/src/teleop_twist_keyboard$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
+
+
+
+输入命令:sudo dpkg -i 空格 把文件拖进去,回车
