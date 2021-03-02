@@ -1,0 +1,7 @@
+<launch>
+
+    <node pkg="base_controller" type="base_controller" name="base_controller">
+        <param name = "moto_driver" type="string" value="FDK" />
+    </node>
+
+</launch>

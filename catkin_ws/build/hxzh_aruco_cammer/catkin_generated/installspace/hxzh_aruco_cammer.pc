@@ -1,0 +1,8 @@
+prefix=/home/xcb/catkin_ws/install
+
+Name: hxzh_aruco_cammer
+Description: Description of hxzh_aruco_cammer
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

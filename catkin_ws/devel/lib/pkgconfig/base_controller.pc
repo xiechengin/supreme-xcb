@@ -1,0 +1,8 @@
+prefix=/home/xcb/catkin_ws/devel
+
+Name: base_controller
+Description: Description of base_controller
+Version: 0.0.0
+Cflags: -I/home/xcb/catkin_ws/src/base_controller/include
+Libs: -L${prefix}/lib -lbase_controller
+Requires: roscpp

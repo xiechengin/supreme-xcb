@@ -1,0 +1,8 @@
+prefix=/home/xcb/catkin_ws/install
+
+Name: qr_move
+Description: Description of qr_move
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lqr_move
+Requires: roscpp rospy std_msgs

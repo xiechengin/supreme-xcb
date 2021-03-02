@@ -1,0 +1,2 @@
+base_controller:hxzh_aruco_cammer:qr_move:realsense-ros-2.2.21/realsense2_camera:realsense-ros-2.2.21/realsense2_description:teleop_twist_keyboard:test
+-DCATKIN_DEVEL_PREFIX=/home/xcb/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/xcb/catkin_ws/install -G Unix Makefiles
